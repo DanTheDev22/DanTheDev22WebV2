@@ -1,0 +1,69 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.social-links {
+  position: fixed;
+  bottom: 0;
+  left: $spacing-8;
+  z-index: $z-header;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-6;
+
+  @include respond-to('md') {
+    display: flex;
+    left: $spacing-12;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-5;
+  }
+
+  &__link {
+    position: relative;
+    color: $color-gray-500;
+    text-decoration: none;
+    @include transition(all, color, transform);
+    transition-duration: $transition-base;
+
+    &:hover {
+      color: $color-white;
+      transform: translateY(-0.25rem) scale(1.1);
+
+      .social-links__label {
+        opacity: 1;
+      }
+    }
+
+    &--linkedin:hover {
+      color: $color-cyan-400;
+    }
+  }
+
+  &__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke-width: 1.5;
+  }
+
+  &__label {
+    position: absolute;
+    left: 100%;
+    margin-left: $spacing-2;
+    font-size: 0.75rem;
+    color: $color-white;
+    opacity: 0;
+    white-space: nowrap;
+    @include transition(opacity);
+  }
+
+  &__line {
+    width: 1px;
+    height: 4rem;
+    background: linear-gradient(to bottom, $color-gray-800, transparent);
+    margin-top: $spacing-2;
+  }
+}

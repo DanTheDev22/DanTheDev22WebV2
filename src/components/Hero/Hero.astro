@@ -1,0 +1,143 @@
+---
+
+---
+
+<main class="hero" id="hero-scene">
+    <div class="hero__content">
+        <div class="hero__text">
+            <h1 class="hero__title">
+                Full-Stack Developer
+                <span class="hero__subtitle">
+          Building scalable web products<br>from idea to production.
+        </span>
+            </h1>
+            <p class="hero__description">
+                I design, develop and deploy modern web applications focused on performance, security and real users.
+            </p>
+        </div>
+
+        <div class="hero__actions">
+            <a href="#" class="hero__button hero__button--primary">
+                <span class="hero__button-text">See My Work</span>
+                <div class="hero__button-glow"></div>
+            </a>
+            <a href="#" class="hero__button hero__button--secondary">
+                Let's Talk
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__button-icon">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="hero__scene">
+        <!-- Tech Card -->
+        <div class="tech-card" id="tech-card">
+            <div class="tech-card__header">
+                <i id="card-icon" class="tech-card__icon"></i>
+                <h3 id="card-title" class="tech-card__title"></h3>
+            </div>
+            <div class="tech-card__content">
+                <div class="tech-card__section">
+                    <div class="tech-card__label">Tech Stack</div>
+                    <div id="card-stack" class="tech-card__stack"></div>
+                </div>
+                <div class="tech-card__section">
+                    <div class="tech-card__label">Role</div>
+                    <p id="card-desc" class="tech-card__description"></p>
+                </div>
+            </div>
+            <div class="tech-card__dots">
+                <div class="tech-card__dot tech-card__dot--red"></div>
+                <div class="tech-card__dot tech-card__dot--yellow"></div>
+                <div class="tech-card__dot tech-card__dot--green"></div>
+            </div>
+            <button id="close-card-btn" class="tech-card__close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tech-card__close-icon">
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- 3D Scene -->
+        <div class="tilt-wrapper" id="tilt-wrapper">
+            <div class="orbit-ring orbit-ring--outer"></div>
+            <div class="orbit-ring orbit-ring--inner"></div>
+
+            <!-- Backend Node -->
+            <div class="node node--backend" id="node-backend">
+                <div class="node__glow"></div>
+                <div class="node__core">
+                    <div class="node__inner-ring"></div>
+                    <div class="node__line node__line--horizontal"></div>
+                    <div class="node__line node__line--vertical"></div>
+                </div>
+                <div class="node__label">Backend Core</div>
+            </div>
+
+            <!-- Cloud Node -->
+            <div class="node node--cloud" id="node-cloud">
+                <div class="node__connector node__connector--cloud"></div>
+                <div class="node__icon">
+                    <svg class="node__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M17.5 19c0-1.7-1.3-3-3-3h-11a3 3 0 0 1 0-6h1a5 5 0 0 1 9.9-1 3 3 0 0 1 3.1 7z"></path>
+                    </svg>
+                    <div class="node__ping"></div>
+                </div>
+                <div class="node__label">Cloud/Deploy</div>
+            </div>
+
+            <!-- Frontend Node -->
+            <div class="node node--frontend" id="node-frontend" style="animation-delay: -2s;">
+                <div class="node__connector node__connector--frontend"></div>
+                <div class="cube-wrapper">
+                    <div class="cube-face cube-face--front"></div>
+                    <div class="cube-face cube-face--back"></div>
+                    <div class="cube-face cube-face--right"></div>
+                    <div class="cube-face cube-face--left"></div>
+                    <div class="cube-face cube-face--top"></div>
+                    <div class="cube-face cube-face--bottom"></div>
+                    <div class="cube-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cube-icon__svg">
+                            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                            <path d="M3 9h18"></path>
+                            <path d="M9 21V9"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="node__label node__label--top">Frontend</div>
+            </div>
+
+            <!-- API Node -->
+            <div class="node node--api" id="node-api" style="animation-delay: -4s;">
+                <div class="node__connector node__connector--api"></div>
+                <div class="node__spinner">
+                    <svg class="node__svg node__svg--full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <path d="M3.3 7l8.7 5 8.7-5M12 22v-10"></path>
+                    </svg>
+                </div>
+                <div class="node__label node__label--bottom">API/Logic</div>
+            </div>
+
+            <!-- Database Node -->
+            <div class="node node--db" id="node-db" style="animation-delay: -1s;">
+                <div class="node__connector node__connector--db"></div>
+                <div class="node__db-icon">
+                    <svg class="node__svg node__svg--db-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M12 2L2 12l10 10 10-10L12 2z"></path>
+                        <path d="M2 12h20"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="node__svg node__svg--db">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                        <path d="M3 12A9 3 0 0 0 21 12"></path>
+                    </svg>
+                </div>
+                <div class="node__label">Database</div>
+            </div>
+        </div>
+    </div>
+</main>

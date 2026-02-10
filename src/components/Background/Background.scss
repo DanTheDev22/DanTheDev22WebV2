@@ -1,0 +1,67 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+@import '../../styles/base/animations';
+
+.background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  &__layer {
+    position: fixed;
+    pointer-events: none;
+
+    &--fog-1 {
+      top: -20%;
+      left: -10%;
+      width: 70vw;
+      height: 70vw;
+      border-radius: $radius-full;
+      mix-blend-mode: screen;
+      background: radial-gradient(circle at center, $color-dark-slate 0%, $color-dark-bg 40%, transparent 70%);
+      filter: blur(120px);
+      z-index: 0;
+      animation: drift-1 25s ease-in-out infinite alternate;
+    }
+
+    &--fog-2 {
+      bottom: -20%;
+      right: -10%;
+      width: 80vw;
+      height: 80vw;
+      border-radius: $radius-full;
+      mix-blend-mode: screen;
+      background: radial-gradient(circle at center, $color-dark-purple-shade 0%, $color-dark-bg 40%, transparent 70%);
+      filter: blur(140px);
+      z-index: 0;
+      animation: drift-2 30s ease-in-out infinite alternate-reverse;
+    }
+
+    &--center-light {
+      @include absolute-center;
+      width: 60vw;
+      height: 60vw;
+      border-radius: $radius-full;
+      background: radial-gradient(circle at center, rgba(30, 41, 59, 0.15) 0%, rgba(2, 6, 23, 0) 60%);
+      filter: blur(100px);
+      z-index: 0;
+      animation: pulse-void 15s ease-in-out infinite;
+    }
+
+    &--mesh {
+      inset: 0;
+      background: radial-gradient(circle at center, $color-dark-slate 0%, $color-dark-bg 40%, transparent 70%);
+      filter: blur(120px);
+      z-index: $z-base;
+    }
+
+    &--overlay {
+      inset: 0;
+      mix-blend-mode: overlay;
+      background: #0a0a0a;
+      opacity: 0.5;
+      z-index: 20;
+    }
+  }
+}

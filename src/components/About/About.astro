@@ -1,0 +1,62 @@
+---
+
+---
+
+<section class="about" id="about-section">
+    <div class="about__container">
+        <div class="about__image-wrapper">
+            <div class="about__image-bg about__image-bg--1"></div>
+            <div class="about__image-bg about__image-bg--2"></div>
+            <div class="about__image">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="about__placeholder-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+                </svg>
+                <div class="about__image-overlay"></div>
+            </div>
+        </div>
+
+        <div class="about__content">
+            <div class="about__header">
+                <div class="about__header-line"></div>
+                <span class="about__header-label">About Me</span>
+            </div>
+
+            <div class="about__text">
+                <p>
+                    I'm Daniel Mogoreanu, a full stack developer from Moldova. I work with
+                    <span class="about__highlight">Java, Spring Boot, and React</span>
+                    —building things that actually work and make sense.
+                </p>
+                <p>
+                    I've always been the kind of person who can't let something be 'good enough' if it could be better. I'm curious, I ask questions, and I enjoy the process of figuring things out. For me, coding isn't just about making something functional—it's about making it right.
+                </p>
+                <p>
+                    I want to become really good at what I do. Not just competent, but someone who builds things that matter and last. I've been at this for a couple of years now, learning something new with every project, and honestly, I'm just getting started.
+                </p>
+            </div>
+
+            <div class="about__stats">
+                <div class="about__stat">
+                    <div class="about__stat-number">
+                        <span id="exp-counter" class="about__stat-value">0</span>
+                        <span class="about__stat-plus">+</span>
+                    </div>
+                    <span class="about__stat-label">Years Experience</span>
+                </div>
+
+                <div class="about__stat">
+                    <div class="about__stat-number">
+                        <span id="tech-mastered-counter" class="about__stat-value about__stat-value--tech">0</span>
+                        <span class="about__stat-plus about__stat-plus--cyan">+</span>
+                    </div>
+                    <span class="about__stat-label">Technologies Mastered</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import { initAboutCounters } from './AboutCounters';
+    initAboutCounters();
+</script>

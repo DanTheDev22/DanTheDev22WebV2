@@ -1,0 +1,51 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.footer {
+  position: relative;
+  z-index: $z-content;
+  width: 100%;
+  border-top: 1px solid rgba($color-white, 0.05);
+  background: rgba($color-black, 0.4);
+  @include backdrop-blur(12px);
+  padding: $spacing-8 0;
+
+  &__container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 $spacing-6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-4;
+
+    @include respond-to('md') {
+      flex-direction: row;
+      padding: 0 $spacing-12;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.75rem;
+    color: $color-gray-600;
+    font-weight: 300;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: $spacing-6;
+  }
+
+  &__link {
+    font-size: 0.75rem;
+    color: $color-gray-500;
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+}

@@ -1,0 +1,281 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.projects {
+  position: relative;
+  z-index: $z-content;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 6rem $spacing-6;
+
+  @include respond-to('md') {
+    padding: 8rem $spacing-12;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    margin-bottom: $spacing-16;
+  }
+
+  &__header-line {
+    height: 1px;
+    width: 3rem;
+    background: $color-brand-purple;
+  }
+
+  &__header-label {
+    color: $color-brand-purple;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-12;
+    position: relative;
+
+    @include respond-to('md') {
+      flex-direction: row;
+    }
+  }
+
+  &__images {
+    display: none;
+
+    @include respond-to('md') {
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      gap: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+
+  &__content {
+    display: none;
+
+    @include respond-to('md') {
+      display: flex;
+      width: 50%;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 8rem;
+      padding-left: $spacing-12;
+    }
+  }
+
+  &__info {
+    @include transition(opacity, transform);
+    transition-duration: $transition-base;
+    transition-timing-function: ease-in-out;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    margin-bottom: $spacing-6;
+  }
+
+  &__title-line {
+    height: 2px;
+    width: 1.5rem;
+    background: $color-brand-magenta;
+    border-radius: $radius-full;
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: $color-white;
+    letter-spacing: -0.025em;
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    color: $color-gray-400;
+    font-weight: 300;
+    line-height: 1.625;
+    max-width: 28rem;
+    margin-bottom: $spacing-8;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-2;
+    margin-bottom: $spacing-10;
+  }
+
+  &__tag {
+    padding: $spacing-2 $spacing-3;
+    font-size: 0.75rem;
+    font-family: $font-mono;
+    font-weight: 500;
+    border: 1px solid rgba($color-white, 0.1);
+    background: rgba($color-white, 0.05);
+    color: $color-gray-300;
+    border-radius: $radius-md;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-4;
+  }
+
+  &__button {
+    padding: $spacing-3 $spacing-5;
+    border-radius: $radius-sm;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    @include transition(all);
+
+    &--primary {
+      background: $color-white;
+      color: $color-black;
+
+      &:hover {
+        background: $color-gray-200;
+      }
+    }
+
+    &--secondary {
+      border: 1px solid rgba($color-white, 0.2);
+      color: $color-white;
+
+      &:hover {
+        background: rgba($color-white, 0.05);
+      }
+    }
+  }
+
+  &__button-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-12;
+
+    @include respond-to('md') {
+      display: none;
+    }
+  }
+}
+
+.project-image {
+  position: relative;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  background: $color-brand-void;
+  border: 1px solid rgba($color-white, 0.1);
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  @include transition(all, transform);
+  transition-duration: $transition-slow;
+
+  &:hover {
+    transform: scale(1.02);
+
+    .project-image__icon {
+      transform: scale(1.1);
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: $color-gray-800;
+  }
+
+  &__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, $color-gray-900, $color-gray-800);
+    @include flex-center;
+  }
+
+  &__icon {
+    width: 5rem;
+    height: 5rem;
+    color: rgba($color-white, 0.1);
+    @include transition(transform);
+    transition-duration: 700ms;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, $color-black, rgba($color-black, 0.4), transparent);
+    opacity: 0.6;
+  }
+}
+
+.project-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+
+  &__image {
+    border-radius: $radius-2xl;
+    overflow: hidden;
+    background: $color-brand-void;
+    border: 1px solid rgba($color-white, 0.1);
+    aspect-ratio: 16/9;
+    @include flex-center;
+    position: relative;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, $color-gray-900, $color-gray-800);
+    @include flex-center;
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    color: rgba($color-white, 0.2);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-white;
+    margin-bottom: $spacing-2;
+  }
+
+  &__description {
+    color: $color-gray-400;
+    font-size: 0.875rem;
+    line-height: 1.625;
+    margin-bottom: $spacing-3;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-2;
+  }
+}

@@ -1,0 +1,286 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.services {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  z-index: $z-content;
+
+  &__sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: $color-brand-void;
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__bg-mesh {
+    position: absolute;
+    border-radius: $radius-full;
+
+    &--purple {
+      top: -20%;
+      left: 20%;
+      width: 500px;
+      height: 500px;
+      background: rgba($color-brand-purple, 0.05);
+      filter: blur(100px);
+      animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    &--magenta {
+      bottom: -10%;
+      right: 10%;
+      width: 400px;
+      height: 400px;
+      background: rgba($color-brand-magenta, 0.05);
+      filter: blur(120px);
+    }
+  }
+
+  &__track {
+    display: flex;
+    align-items: center;
+    gap: $spacing-6;
+    padding: 0 $spacing-8;
+    width: max-content;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    will-change: transform;
+
+    @include respond-to('md') {
+      gap: $spacing-10;
+      padding: 0 $spacing-24;
+    }
+  }
+
+  &__title-block {
+    width: 85vw;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $spacing-6;
+
+    @include respond-to('md') {
+      width: 35vw;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    margin-bottom: $spacing-2;
+  }
+
+  &__header-line {
+    height: 1px;
+    width: 3rem;
+    background: $color-brand-purple;
+  }
+
+  &__header-label {
+    color: $color-brand-purple;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    color: $color-white;
+    line-height: 1.1;
+
+    @include respond-to('md') {
+      font-size: 6rem;
+    }
+  }
+
+  &__heading-gradient {
+    @include gradient-text($color-brand-purple, $color-brand-magenta);
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    color: $color-gray-400;
+    font-weight: 300;
+    max-width: 28rem;
+  }
+
+  &__scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    font-size: 0.875rem;
+    color: $color-gray-500;
+    margin-top: $spacing-8;
+  }
+
+  &__scroll-icon {
+    width: 1rem;
+    height: 1rem;
+    animation: bounce 1s infinite;
+  }
+}
+
+.service-card {
+  position: relative;
+  width: 80vw;
+  height: 350px;
+  flex-shrink: 0;
+  border-radius: $radius-xl;
+  padding: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba($color-white, 0.05);
+  background: rgba($color-white, 0.05);
+  @include backdrop-blur(12px);
+  @include transition(all, transform, border-color, box-shadow);
+  transition-duration: $transition-slow;
+  overflow: hidden;
+
+  @include respond-to('md') {
+    width: 400px;
+    height: 340px;
+    padding: $spacing-8;
+  }
+
+  &__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba($color-brand-purple, 0.1), transparent);
+    opacity: 0;
+    @include transition(opacity);
+    transition-duration: $transition-slow;
+  }
+
+  &:hover {
+    transform: translateY(-0.5rem);
+
+    .service-card__gradient {
+      opacity: 1;
+    }
+
+    .service-card__icon-wrapper {
+      transform: scale(1.1);
+    }
+
+    .service-card__title {
+      @include gradient-text($color-white, $color-brand-purple);
+    }
+  }
+
+  &--purple:hover {
+    border-color: rgba($color-brand-purple, 0.4);
+    box-shadow: 0 20px 40px -15px rgba($color-brand-purple, 0.2);
+
+    .service-card__title {
+      @include gradient-text($color-white, $color-brand-purple);
+    }
+  }
+
+  &--magenta {
+    .service-card__gradient {
+      background: linear-gradient(to bottom right, rgba($color-brand-magenta, 0.1), transparent);
+    }
+
+    .service-card__footer {
+      color: rgba($color-brand-magenta, 0.8);
+    }
+
+    &:hover {
+      border-color: rgba($color-brand-magenta, 0.4);
+      box-shadow: 0 20px 40px -15px rgba($color-brand-magenta, 0.2);
+
+      .service-card__title {
+        @include gradient-text($color-white, $color-brand-magenta);
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__icon-wrapper {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacing-6;
+    @include transition(transform);
+    transition-duration: $transition-slow;
+
+    &--purple {
+      background: rgba($color-brand-dark-purple, 0.3);
+      border: 1px solid rgba($color-brand-purple, 0.3);
+    }
+
+    &--magenta {
+      background: rgba($color-brand-dark-magenta, 0.3);
+      border: 1px solid rgba($color-brand-magenta, 0.3);
+    }
+  }
+
+  &__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+
+    &--purple {
+      color: $color-brand-purple;
+    }
+
+    &--magenta {
+      color: $color-brand-magenta;
+    }
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: $color-white;
+    margin-bottom: $spacing-3;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    @include transition(all);
+  }
+
+  &__description {
+    color: $color-gray-400;
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.625;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    font-size: 0.625rem;
+    font-family: $font-mono;
+    color: rgba($color-brand-purple, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-top: $spacing-5;
+    border-top: 1px solid rgba($color-white, 0.05);
+  }
+}

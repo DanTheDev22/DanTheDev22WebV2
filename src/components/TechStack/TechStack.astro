@@ -1,0 +1,98 @@
+---
+import './TechStack.scss'
+---
+
+
+<section class="tech-stack" id="tech-section">
+    <div class="tech-stack__container">
+        <div class="tech-stack__header">
+            <div class="tech-stack__header-line"></div>
+            <span class="tech-stack__header-label">Technologies</span>
+            <div class="tech-stack__header-line"></div>
+        </div>
+
+        <div class="tech-stack__filters" id="tech-filters">
+            <button class="tech-stack__filter tech-stack__filter--active" data-filter="all">All</button>
+            <button class="tech-stack__filter" data-filter="frontend">Frontend</button>
+            <button class="tech-stack__filter" data-filter="backend">Backend</button>
+            <button class="tech-stack__filter" data-filter="database">Database</button>
+            <button class="tech-stack__filter" data-filter="tools">Tools</button>
+        </div>
+
+        <div class="tech-stack__grid" id="tech-grid">
+            <!-- Frontend -->
+            <div class="tech-item" data-category="frontend">
+                <iconify-icon icon="logos:javascript" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">JavaScript</span>
+            </div>
+            <div class="tech-item" data-category="frontend">
+                <iconify-icon icon="logos:html-5" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">HTML5</span>
+            </div>
+            <div class="tech-item" data-category="frontend">
+                <iconify-icon icon="logos:css-3" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">CSS3</span>
+            </div>
+            <div class="tech-item" data-category="frontend">
+                <iconify-icon icon="logos:sass" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">SCSS</span>
+            </div>
+            <div class="tech-item" data-category="frontend">
+                <iconify-icon icon="logos:vitejs" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">Vite</span>
+            </div>
+            <div class="tech-item" data-category="frontend">
+                <iconify-icon icon="logos:react" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">React</span>
+            </div>
+
+            <!-- Backend -->
+            <div class="tech-item" data-category="backend">
+                <iconify-icon icon="logos:java" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">Java</span>
+            </div>
+            <div class="tech-item" data-category="backend">
+                <iconify-icon icon="logos:spring-icon" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">Spring Boot</span>
+            </div>
+            <div class="tech-item" data-category="backend">
+                <iconify-icon icon="logos:hibernate" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">Hibernate</span>
+            </div>
+
+            <!-- Database -->
+            <div class="tech-item" data-category="database">
+                <iconify-icon icon="logos:redis" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">Redis</span>
+            </div>
+            <div class="tech-item" data-category="database">
+                <iconify-icon icon="logos:postgresql" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">PostgreSQL</span>
+            </div>
+
+            <!-- Tools -->
+            <div class="tech-item" data-category="tools">
+                <iconify-icon icon="logos:postman-icon" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">Postman</span>
+            </div>
+            <div class="tech-item" data-category="tools">
+                <iconify-icon icon="logos:git-icon" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">Git</span>
+            </div>
+            <div class="tech-item" data-category="tools">
+                <iconify-icon icon="logos:docker-icon" width="24" height="24"></iconify-icon>
+                <span class="tech-item__name">Docker</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script is:inline src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"></script>
+
+<script>
+    import {TechStack} from './TechStack.js'
+
+    document.addEventListener('DOMContentLoaded', () => {
+        new TechStack().init();
+    })
+</script>

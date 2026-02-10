@@ -1,0 +1,48 @@
+---
+
+---
+
+<!-- Header.astro -->
+<header class="navbar" id="navbar">
+    <div class="navbar__container">
+        <!-- Logo -->
+        <a href="#" class="navbar__logo">
+            <div class="navbar__logo-text" id="glitch-logo" data-text="<DanTheDev22/>">&lt;DanTheDev22/&gt;</div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="navbar__nav">
+            <a href="#" class="navbar__link">Home</a>
+            <a href="#services-wrapper" class="navbar__link">Services</a>
+            <a href="#projects-section" class="navbar__link">Projects</a>
+            <a href="#contact-section" class="navbar__link">Contact</a>
+        </nav>
+
+        <!-- Language Switcher -->
+        <div class="navbar__lang">
+            <button class="navbar__lang-btn navbar__lang-btn--active">ENG</button>
+            <span class="navbar__lang-separator">|</span>
+            <button class="navbar__lang-btn">RO</button>
+            <span class="navbar__lang-separator">|</span>
+            <button class="navbar__lang-btn">RU</button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="navbar__menu-toggle" id="mobile-menu-btn">
+            <i data-lucide="menu"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="navbar__mobile-menu" id="mobile-menu">
+        <a href="#" class="navbar__mobile-link">Home</a>
+        <a href="#services-wrapper" class="navbar__mobile-link">Services</a>
+        <a href="#projects-section" class="navbar__mobile-link">Projects</a>
+        <a href="#contact-section" class="navbar__mobile-link">Contact</a>
+    </div>
+</header>
+
+<script>
+    import { initNavbar } from './Header';
+    initNavbar();
+</script>
