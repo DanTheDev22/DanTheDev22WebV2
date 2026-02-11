@@ -1,10 +1,18 @@
 @use 'mixins';
 @use 'media';
 
+
 .container {
-  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  max-width: var(--container-width-default);
   margin-inline: auto;
-  padding-inline: var(--container-padding-x);
+  width: 100%;
+}
+
+.container--header {
+  max-width: calc(var(--container-width-header) + (var(--container-padding-x)*2));
+  margin-inline: auto;
+  width: 100%;
+  padding-inline: 48px;
 }
 
 .visually-hidden {

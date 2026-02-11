@@ -6,12 +6,21 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "astro prettier . --write"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
     "astro": "^5.17.1",
+    "lucide-react": "^0.563.0",
     "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-hook-form": "^7.71.1",
     "sass": "^1.97.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
   }
 }

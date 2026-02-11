@@ -1,8 +1,8 @@
 @use 'sass:math';
 
-@mixin fluid-text($max: 48, $min: 16) {
-  font-size: clamp(#{$min}px, math.div($max, 1440) * 100vw, #{$max}px);
-}
+//@mixin fluid-text($max: 48, $min: 16) {
+//  font-size: clamp(#{$min}px, math.div($max, 1440) * 100vw, #{$max}px);
+//} TO DO
 
 @mixin reset-link {
   color: inherit;
@@ -55,18 +55,6 @@
   overflow: hidden !important;
 }
 
-@mixin respond-to($breakpoint) {
-  @if $breakpoint == 'sm' {
-    @media (min-width: $breakpoint-sm) { @content; }
-  } @else if $breakpoint == 'md' {
-    @media (min-width: $breakpoint-md) { @content; }
-  } @else if $breakpoint == 'lg' {
-    @media (min-width: $breakpoint-lg) { @content; }
-  } @else if $breakpoint == 'xl' {
-    @media (min-width: $breakpoint-xl) { @content; }
-  }
-}
-
 @mixin backdrop-blur($amount) {
   backdrop-filter: blur($amount);
   -webkit-backdrop-filter: blur($amount);
@@ -94,6 +82,6 @@
 
 @mixin transition($properties...) {
   transition-property: $properties;
-  transition-duration: $transition-base;
+  transition-duration: var(--transition-base);
   transition-timing-function: ease;
 }

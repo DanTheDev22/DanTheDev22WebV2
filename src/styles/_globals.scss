@@ -1,14 +1,13 @@
 @use 'mixins';
 @use 'media';
 
-body {
-  @include mixins.fluid-text(18, 16);
+html {
+  box-sizing: border-box;
+  /* NU pune max-width aici! */
+}
 
-  font-family: var(--font-family-base), serif;
-  font-weight: 400;
-  line-height: 1.28;
-  color: var(--color-dark);
-  background-color: var(--color-light);
+*, *::before, *::after {
+  box-sizing: inherit;       // propagate box-sizing
 }
 
 a,
@@ -16,7 +15,7 @@ button,
 input,
 textarea,
 svg * {
-  transition-duration: var(--transition-duration);
+  transition-duration: var(--transition-duration-fast);
 }
 
 a {
@@ -25,18 +24,20 @@ a {
 }
 
 body {
-  font-family: $font-sans;
-  background-color: $color-brand-void;
-  color: $color-white;
+  //@include mixins.fluid-text(18, 16);
+  font-family: var(--font-inter),sans-serif;
+  background-color: var(--color-brand-void);
+  color: var(--color-white);
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
   width: 100%;
+
 }
 
 ::selection {
-  background-color: rgba($color-brand-purple, 0.3);
-  color: $color-white;
+  background-color: rgba(var(--color-brand-purple), 0.3);
+  color: var(--color-white);
 }
 
 ::-webkit-scrollbar {
@@ -44,7 +45,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: $color-dark-bg;
+  background: var(--color-dark-bg);
 }
 
 ::-webkit-scrollbar-thumb {
