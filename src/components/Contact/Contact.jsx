@@ -26,9 +26,9 @@ const Contact = () => {
             const response = await fetch('https://formspree.io/f/xnndwgnl', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
                 },
-                body: JSON.stringify(data)
+                body: new FormData(document.querySelector('.contact__form'))
             });
 
             if (response.ok) {
@@ -44,8 +44,8 @@ const Contact = () => {
     };
 
     return (
-        <section className="contact container" id="contact-section">
-            <div className="contact__container">
+        <section className="contact" id="contact-section">
+            <div className="contact__container container">
                 <div className="contact__header">
                     <h2 className="contact__title">Let's work together</h2>
                     <p className="contact__subtitle">Have an idea? Let's turn it into reality.</p>
@@ -58,13 +58,12 @@ const Contact = () => {
                 )}
 
                 {submitStatus === 'error' && (
-                    <div className="contact__error">
+                    <div className="contact__error-banner">
                         ❌ Failed to send. Please try again.
                     </div>
                 )}
 
-                <form   action="https://formspree.io/f/xnndwgnl"
-                        method="POST"
+                <form
                         className="contact__form"
                         onSubmit={handleSubmit(onSubmit)}
                         noValidate>

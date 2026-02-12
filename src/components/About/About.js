@@ -1,4 +1,3 @@
-// AboutCounters.js
 export function initAboutCounters() {
     const aboutSection = document.getElementById('about-section');
     if (!aboutSection) return;
@@ -30,7 +29,6 @@ function animateCounter(id, start, end, duration) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
 
-        // Easing function for smoother animation
         const easeOutQuad = progress * (2 - progress);
         const current = Math.floor(start + range * easeOutQuad);
 

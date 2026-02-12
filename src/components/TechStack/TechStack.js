@@ -3,7 +3,6 @@ export class TechStack {
         this.filterBtns = document.querySelectorAll('.tech-stack__filter');
         this.techItems = document.querySelectorAll('.tech-item');
         this.techGrid = document.getElementById('tech-grid');
-        // No init() call here!
     }
 
     init() {
