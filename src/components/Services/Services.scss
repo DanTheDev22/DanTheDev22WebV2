@@ -1,11 +1,8 @@
-@import '../../styles/base/variables';
-@import '../../styles/base/mixins';
-
 .services {
   position: relative;
   width: 100%;
-  height: 300vh;
-  z-index: $z-content;
+  height: 900px;
+  z-index: var(--z-content);
 
   &__sticky-container {
     position: sticky;
@@ -15,7 +12,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    background: $color-brand-void;
+    background: var(--color-brand-void);
   }
 
   &__background {
@@ -26,14 +23,14 @@
 
   &__bg-mesh {
     position: absolute;
-    border-radius: $radius-full;
+    border-radius: var(--radius-full);
 
     &--purple {
       top: -20%;
       left: 20%;
       width: 500px;
       height: 500px;
-      background: rgba($color-brand-purple, 0.05);
+      background: rgba(var(--color-brand-purple), 0.05);
       filter: blur(100px);
       animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
@@ -43,7 +40,7 @@
       right: 10%;
       width: 400px;
       height: 400px;
-      background: rgba($color-brand-magenta, 0.05);
+      background: rgba(var(--color-brand-magenta), 0.05);
       filter: blur(120px);
     }
   }
@@ -51,84 +48,76 @@
   &__track {
     display: flex;
     align-items: center;
-    gap: $spacing-6;
-    padding: 0 $spacing-8;
+    gap: 40px;
+    padding: 0 96px;
     width: max-content;
     height: 100%;
     position: relative;
     z-index: 10;
     will-change: transform;
-
-    @include respond-to('md') {
-      gap: $spacing-10;
-      padding: 0 $spacing-24;
-    }
   }
 
   &__title-block {
-    width: 85vw;
+    width: 504px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: $spacing-6;
-
-    @include respond-to('md') {
-      width: 35vw;
-    }
+    gap: 24px;
   }
 
   &__header {
     display: flex;
     align-items: center;
-    gap: $spacing-3;
-    margin-bottom: $spacing-2;
+    gap: 12px;
+    margin-bottom: 8px;
   }
 
   &__header-line {
     height: 1px;
     width: 3rem;
-    background: $color-brand-purple;
+    background: var(--color-brand-purple);
   }
 
   &__header-label {
-    color: $color-brand-purple;
-    font-family: $font-mono;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    color: var(--color-brand-purple);
+    font-family: var(--font-mono),monospace;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    line-height: 16px;
     text-transform: uppercase;
   }
 
   &__heading {
-    font-size: 3rem;
+    font-size: 96px;
     font-weight: 500;
-    letter-spacing: -0.05em;
-    color: $color-white;
-    line-height: 1.1;
-
-    @include respond-to('md') {
-      font-size: 6rem;
-    }
+    letter-spacing: -4.8px;
+    color: var(--color-white);
+    line-height: 96px;
   }
 
   &__heading-gradient {
-    @include gradient-text($color-brand-purple, $color-brand-magenta);
+    //@include gradient-text(var(--color-brand-purple), var(--color-brand-magenta));
   }
 
   &__description {
-    font-size: 1.125rem;
-    color: $color-gray-400;
+    font-size: 18px;
+    color: var(--color-gray-400);
     font-weight: 300;
-    max-width: 28rem;
+    max-width: 448px;
+    line-height: 28px;
   }
 
   &__scroll-hint {
     display: flex;
     align-items: center;
-    gap: $spacing-2;
-    font-size: 0.875rem;
-    color: $color-gray-500;
-    margin-top: $spacing-8;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--color-gray-500);
+    //margin-top: var(--spacing-8);
   }
 
   &__scroll-icon {
@@ -140,34 +129,28 @@
 
 .service-card {
   position: relative;
-  width: 80vw;
-  height: 350px;
+  width: 400px;
+  height: 340px;
   flex-shrink: 0;
-  border-radius: $radius-xl;
-  padding: $spacing-6;
+  border-radius: var(--radius-xl);
+  padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba($color-white, 0.05);
-  background: rgba($color-white, 0.05);
-  @include backdrop-blur(12px);
-  @include transition(all, transform, border-color, box-shadow);
-  transition-duration: $transition-slow;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
+  //@include backdrop-blur(12px);
+  //@include transition(all, transform, border-color, box-shadow);
+  transition-duration: var(--transition-slow);
   overflow: hidden;
-
-  @include respond-to('md') {
-    width: 400px;
-    height: 340px;
-    padding: $spacing-8;
-  }
 
   &__gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom right, rgba($color-brand-purple, 0.1), transparent);
+    background: linear-gradient(to bottom right, rgba(var(--color-brand-purple), 0.1), transparent);
     opacity: 0;
-    @include transition(opacity);
-    transition-duration: $transition-slow;
+    //@include transition(opacity);
+    transition-duration: var(--transition-slow);
   }
 
   &:hover {
@@ -182,34 +165,34 @@
     }
 
     .service-card__title {
-      @include gradient-text($color-white, $color-brand-purple);
+      //@include gradient-text(var(--color-white), var(--color-brand-purple));
     }
   }
 
   &--purple:hover {
-    border-color: rgba($color-brand-purple, 0.4);
-    box-shadow: 0 20px 40px -15px rgba($color-brand-purple, 0.2);
+    border-color: rgba(var(--color-brand-purple), 0.4);
+    box-shadow: 0 20px 40px -15px rgba(var(--color-brand-purple), 0.2);
 
     .service-card__title {
-      @include gradient-text($color-white, $color-brand-purple);
+      //@include gradient-text(var(--color-white), var(--color-brand-purple));
     }
   }
 
   &--magenta {
     .service-card__gradient {
-      background: linear-gradient(to bottom right, rgba($color-brand-magenta, 0.1), transparent);
+      background: linear-gradient(to bottom right, rgba(var(--color-brand-magenta), 0.1), transparent);
     }
 
     .service-card__footer {
-      color: rgba($color-brand-magenta, 0.8);
+      color: rgba(var(--color-brand-magenta), 0.8);
     }
 
     &:hover {
-      border-color: rgba($color-brand-magenta, 0.4);
-      box-shadow: 0 20px 40px -15px rgba($color-brand-magenta, 0.2);
+      border-color: rgba(var(--color-brand-magenta), 0.4);
+      box-shadow: 0 20px 40px -15px rgba(var(--color-brand-magenta), 0.2);
 
       .service-card__title {
-        @include gradient-text($color-white, $color-brand-magenta);
+        //@include gradient-text(var(--color-white), var(--color-brand-magenta));
       }
     }
   }
@@ -217,70 +200,72 @@
   &__content {
     display: flex;
     flex-direction: column;
+    gap: 10px;
   }
 
   &__icon-wrapper {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: $radius-lg;
+    width:40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: $spacing-6;
-    @include transition(transform);
-    transition-duration: $transition-slow;
+    margin-bottom: 14px;
+    //@include transition(transform);
+    transition-duration: var(--transition-slow);
 
     &--purple {
-      background: rgba($color-brand-dark-purple, 0.3);
-      border: 1px solid rgba($color-brand-purple, 0.3);
+      background: rgba(var(--color-brand-dark-purple), 0.3);
+      border: 1px solid rgba(var(--color-brand-purple), 0.3);
     }
 
     &--magenta {
-      background: rgba($color-brand-dark-magenta, 0.3);
-      border: 1px solid rgba($color-brand-magenta, 0.3);
+      background: rgba(var(--color-brand-dark-magenta), 0.3);
+      border: 1px solid rgba(var(--color-brand-magenta), 0.3);
     }
   }
 
   &__icon {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 20px;
+    height: 20px;
 
     &--purple {
-      color: $color-brand-purple;
+      color: var(--color-brand-purple);
     }
 
     &--magenta {
-      color: $color-brand-magenta;
+      color: var(--color-brand-magenta);
     }
   }
 
   &__title {
-    font-size: 1.25rem;
+    font-size: 20px;
     font-weight: 500;
-    color: $color-white;
-    margin-bottom: $spacing-3;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
-    @include transition(all);
+    color: var(--color-white);
+    letter-spacing: -0.5px;
+    line-height: 25px;
+    //@include transition(all);
   }
 
   &__description {
-    color: $color-gray-400;
+    color: var(--color-gray-400);
     font-weight: 300;
-    font-size: 0.875rem;
-    line-height: 1.625;
+    font-size: 14px;
+    line-height: 22.75px;
   }
 
   &__footer {
     display: flex;
     align-items: center;
-    gap: $spacing-2;
-    font-size: 0.625rem;
-    font-family: $font-mono;
-    color: rgba($color-brand-purple, 0.8);
+    gap: 8px;
+    font-size: 10px;
+    font-family: var(--font-mono),monospace;
+    color: rgba(var(--color-brand-purple), 0.8);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding-top: $spacing-5;
-    border-top: 1px solid rgba($color-white, 0.05);
+    letter-spacing: 1px;
+    line-height: 15px;
+    font-weight: 400;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
 }

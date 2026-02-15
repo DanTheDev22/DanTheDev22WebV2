@@ -3,12 +3,16 @@ import Contact from '../components/Contact/Contact';
 import Layout from '../layouts/Layout.astro';
 import TechStack from "../components/TechStack/TechStack.astro";
 import About from "../components/About/About.astro";
+import Services from '../components/Services/Services.astro';
+import Projects from "../components/Projects/Projects.astro";
 
 
 ---
 
 <Layout>
     <About/>
+    <Services/>
     <TechStack/>
+    <Projects/>
     <Contact client:load />
 </Layout>

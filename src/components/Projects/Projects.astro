@@ -1,8 +1,8 @@
 ---
-
+import './Projects.scss'
 ---
 
-<section class="projects" id="projects-section">
+<section class="projects container" id="projects-section">
     <div class="projects__header">
         <div class="projects__header-line"></div>
         <span class="projects__header-label">Featured Work</span>
@@ -66,7 +66,7 @@
         </div>
 
         <!-- Mobile Projects -->
-        <div class="projects__mobile">
+        <div class="projects__mobile visible-mobile">
             <div class="project-mobile">
                 <div class="project-mobile__image">
                     <div class="project-mobile__bg">
@@ -120,3 +120,12 @@
         </div>
     </div>
 </section>
+
+<script>
+    import {Projects} from './Projects';
+    const instance = Projects.init();
+
+    document.addEventListener('astro:before-swap', () => {
+        instance?.destroy();
+    });
+</script>

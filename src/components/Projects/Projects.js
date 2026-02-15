@@ -17,22 +17,26 @@ export class Projects {
                 tags: ["TypeScript", "Tailwind", "React"]
             }
         ];
-
         this.projectTriggers = document.querySelectorAll('.project-image');
         this.infoContainer = document.getElementById('project-info-container');
         this.projTitle = document.getElementById('proj-title');
         this.projDesc = document.getElementById('proj-desc');
         this.projTags = document.getElementById('proj-tags');
+        this.observer = null;
 
-        this.init();
+        this.setup();
     }
 
-    init() {
+    static init() {
+        return new Projects();
+    }
+
+    setup() {
         this.initScrollSpy();
     }
 
     initScrollSpy() {
-        const observer = new IntersectionObserver((entries) => {
+        this.observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const idx = entry.target.getAttribute('data-index');
@@ -41,22 +45,20 @@ export class Projects {
             });
         }, { rootMargin: '-40% 0px -40% 0px', threshold: 0.2 });
 
-        this.projectTriggers.forEach(trigger => observer.observe(trigger));
+        this.projectTriggers.forEach(trigger => this.observer.observe(trigger));
     }
 
     updateProjectInfo(data) {
         if (!data) return;
 
-        // Fade out
+        this.infoContainer.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
         this.infoContainer.style.opacity = '0.5';
         this.infoContainer.style.transform = 'translateY(10px)';
 
         setTimeout(() => {
-            // Update content
             this.projTitle.textContent = data.title;
             this.projDesc.textContent = data.desc;
 
-            // Update tags
             this.projTags.innerHTML = '';
             data.tags.forEach(tag => {
                 const span = document.createElement('span');
@@ -65,9 +67,15 @@ export class Projects {
                 this.projTags.appendChild(span);
             });
 
-            // Fade in
             this.infoContainer.style.opacity = '1';
             this.infoContainer.style.transform = 'translateY(0)';
         }, 200);
+    }
+
+    destroy() {
+        if (this.observer) {
+            this.observer.disconnect();
+            this.observer = null;
+        }
     }
 }
