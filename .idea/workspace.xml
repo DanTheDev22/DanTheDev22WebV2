@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c5e3adc-54f3-4dc7-8249-80b721365a38" name="Changes" comment="footer done">
+    <list default="true" id="1c5e3adc-54f3-4dc7-8249-80b721365a38" name="Changes" comment="header, footer, about, techstack, contact sections are done">
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/About/About.astro" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/About/About.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/About/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/About/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/About/About.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/About/About.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Contact/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Contact/Contact.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Contact/Contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Contact/Contact.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Header/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Header/Header.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Header/Header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/TechStack/TechStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/TechStack/TechStack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Projects/Projects.astro" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Projects/Projects.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Projects/Projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Projects/Projects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Projects/Projects.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Projects/Projects.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Services/Services.astro" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Services/Services.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/components/Services/Services.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/components/Services/Services.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/pages/index.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-portfoliov2/src/styles/_utils.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web-portfoliov2/src/styles/_utils.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +63,8 @@
       <workItem from="1770751582269" duration="97000" />
       <workItem from="1770751697556" duration="133000" />
       <workItem from="1770751843983" duration="17449000" />
-      <workItem from="1770928227332" duration="5003000" />
+      <workItem from="1770928227332" duration="9224000" />
+      <workItem from="1771177333543" duration="929000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1 restored successful">
       <option name="closed" value="true" />
@@ -84,7 +82,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770846782923</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="header, footer, about, techstack, contact sections are done">
+      <option name="closed" value="true" />
+      <created>1770934096562</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770934096562</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +99,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.1 restored successful" />
     <MESSAGE value="footer done" />
-    <option name="LAST_COMMIT_MESSAGE" value="footer done" />
+    <MESSAGE value="header, footer, about, techstack, contact sections are done" />
+    <option name="LAST_COMMIT_MESSAGE" value="header, footer, about, techstack, contact sections are done" />
   </component>
 </project>
