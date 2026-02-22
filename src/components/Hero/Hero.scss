@@ -1,6 +1,4 @@
-@import '../../styles/base/variables';
-@import '../../styles/base/mixins';
-@import '../../styles/base/animations';
+@use '../../styles/animations';
 
 .hero {
   position: relative;

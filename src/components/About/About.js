@@ -9,7 +9,7 @@ export function initAboutCounters() {
             if (entry.isIntersecting && !hasCounted) {
                 hasCounted = true;
                 animateCounter('exp-counter', 0, 2, 1000);
-                animateCounter('tech-mastered-counter', 0, 18, 1500);
+                animateCounter('tech-mastered-counter', 0, 14, 1500);
                 observer.disconnect(); // Stop observing after animation
             }
         });

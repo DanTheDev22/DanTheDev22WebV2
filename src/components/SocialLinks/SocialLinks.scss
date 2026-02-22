@@ -1,36 +1,29 @@
-@import '../../styles/base/variables';
-@import '../../styles/base/mixins';
+@use '../../styles/mixins.scss';
 
 .social-links {
   position: fixed;
   bottom: 0;
-  left: $spacing-8;
-  z-index: $z-header;
-  display: none;
+  left: 2rem;
+  z-index: var(--z-header);
   flex-direction: column;
   align-items: center;
-  gap: $spacing-6;
-
-  @include respond-to('md') {
-    display: flex;
-    left: $spacing-12;
-  }
+  gap: 1.5rem;
 
   &__list {
     display: flex;
     flex-direction: column;
-    gap: $spacing-5;
+    gap: 1.25rem;
   }
 
   &__link {
     position: relative;
-    color: $color-gray-500;
+    color: var(--color-gray-500);
     text-decoration: none;
-    @include transition(all, color, transform);
-    transition-duration: $transition-base;
+    @include mixins.transition(all, color, transform);
+    transition-duration: var(--transition-duration-base);
 
     &:hover {
-      color: $color-white;
+      color: var(--color-white);
       transform: translateY(-0.25rem) scale(1.1);
 
       .social-links__label {
@@ -39,7 +32,7 @@
     }
 
     &--linkedin:hover {
-      color: $color-cyan-400;
+      color: var(--color-cyan-400);
     }
   }
 
@@ -52,18 +45,18 @@
   &__label {
     position: absolute;
     left: 100%;
-    margin-left: $spacing-2;
+    margin-left: 0.5rem;
     font-size: 0.75rem;
-    color: $color-white;
+    color: var(--color-white);
     opacity: 0;
     white-space: nowrap;
-    @include transition(opacity);
+    @include mixins.transition(opacity);
   }
 
   &__line {
     width: 1px;
     height: 4rem;
-    background: linear-gradient(to bottom, $color-gray-800, transparent);
-    margin-top: $spacing-2;
+    background: linear-gradient(to bottom, var(--color-gray-800), transparent);
+    margin-top: var(--spacing-2);
   }
 }

@@ -1,6 +1,7 @@
-@import '../../styles/_mixins.scss';
+@use '../../styles/_mixins.scss';
 
 .tech-stack {
+  position: relative;
   z-index: var(--z-content);
   background: var(--color-brand-void);
   overflow: hidden;
@@ -67,7 +68,7 @@
     line-height: 20px;
     text-align: center;
     cursor: pointer;
-    @include transition(all);
+    @include mixins.transition(all);
     transition-duration: var(--transition-fast);
 
     &:hover {
@@ -106,12 +107,12 @@
 
   border: 1px solid #FFFFFF0D;
   background: #FFFFFF0D;
-  @include backdrop-blur(4px);
+  @include mixins.backdrop-blur(4px);
   cursor: default;
   opacity: 0;
   transform: translateY(10px);
-  @include transition(all, opacity, transform, border-color, box-shadow);
-  transition-duration: var(--transition-base);
+  @include mixins.transition(all, opacity, transform, border-color, box-shadow);
+  transition-duration: var(--transition-duration-base);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &.visible {
@@ -139,6 +140,6 @@
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-gray-300);
-    @include transition(color);
+    @include mixins.transition(color);
   }
 }

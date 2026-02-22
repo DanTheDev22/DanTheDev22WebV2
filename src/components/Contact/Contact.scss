@@ -1,5 +1,9 @@
+@use '../../styles/mixins.scss';
+
 .contact {
+  position: relative;
   z-index: var(--z-content);
+  padding-block: 128px 144px;
 
   &__container {
     display: flex;
@@ -66,14 +70,14 @@
   &__input {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(var(--color-white), 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
     padding-block: 13px 14px;
     color: var(--color-white);
     font-size: 0.875rem;
     font-weight: 300;
     max-width: 558px;
     width: 100%;
-    //@include transition(border-color);
+    @include mixins.transition(border-color);
 
     &::placeholder {
       color: var(--color-gray-600);
@@ -95,9 +99,6 @@
   }
 
   &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     padding: 16px;
     background: var(--color-white);
@@ -107,15 +108,16 @@
     font-weight: 500;
     font-size: 0.875rem;
     cursor: pointer;
-    //@include flex-center;
-    gap: var(--spacing-2);
-    //@include transition(background);
+    @include mixins.flex-center;
+    gap: 0.5rem;
+    @include mixins.transition(background);
 
     &:hover {
       background: var(--color-gray-200);
 
       .contact__button-icon {
         transform: translateX(0.25rem);
+        transition-duration: var(--transition-duration-base);
       }
     }
   }
@@ -123,7 +125,8 @@
   &__button-icon {
     width: 1rem;
     height: 1rem;
-    //@include transition(transform);
+    @include mixins.transition(transform);
+    transition-duration: var(--transition-duration-base);
   }
 
   &__success,

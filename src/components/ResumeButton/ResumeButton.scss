@@ -1,41 +1,40 @@
-@import '../../styles/base/variables';
-@import '../../styles/base/mixins';
+@use "../../styles/mixins.scss";
 
 .resume-button {
   position: fixed;
-  bottom: $spacing-8;
-  right: $spacing-8;
-  z-index: $z-header;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: var(--z-header);
 
   &__link {
     display: flex;
     align-items: center;
-    gap: $spacing-2;
-    padding: $spacing-3 $spacing-4 $spacing-3 $spacing-5;
-    border-radius: $radius-full;
-    border: 1px solid rgba($color-white, 0.1);
-    background: rgba($color-white, 0.05);
-    @include backdrop-blur(4px);
+    gap: 0.5rem;
+    padding: 10px 16px 10px 20px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.05);
+    @include mixins.backdrop-blur(4px);
     text-decoration: none;
-    @include transition(all, background, border-color, box-shadow, transform);
-    transition-duration: $transition-base;
+    @include mixins.transition(all, background, border-color, box-shadow, transform);
+    transition-duration: var(--transition-duration-base);
 
     &:hover {
-      background: rgba($color-white, 0.1);
-      border-color: rgba($color-cyan-500, 0.4);
-      box-shadow: 0 0 15px rgba($color-cyan-500, 0.15);
+      background: rgba(var(--color-white), 0.1);
+      border-color: rgba(var(--color-cyan-500), 0.4);
+      box-shadow: 0 0 15px rgba(var(--color-cyan-500), 0.15);
       transform: translateY(-0.25rem);
 
       .resume-button__text {
-        color: $color-white;
+        color: var(--color-white);
       }
 
       .resume-button__icon-wrapper {
-        background: rgba($color-cyan-500, 0.2);
+        background: rgba(var(--color-cyan-500), 0.2);
       }
 
       .resume-button__icon {
-        color: $color-cyan-400;
+        color: var(--color-cyan-400);
       }
     }
   }
@@ -43,23 +42,23 @@
   &__text {
     font-size: 0.75rem;
     font-weight: 500;
-    color: $color-gray-300;
+    color: var(--color-gray-300);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    @include transition(color);
+    @include mixins.transition(color);
   }
 
   &__icon-wrapper {
-    background: rgba($color-white, 0.1);
-    border-radius: $radius-full;
-    padding: $spacing-1;
-    @include transition(background);
+    background: rgba(var(--color-white), 0.1);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-1);
+    @include mixins.transition(background);
   }
 
   &__icon {
     width: 0.875rem;
     height: 0.875rem;
-    color: $color-gray-400;
-    @include transition(color);
+    color: var(--color-gray-400);
+    @include mixins.transition(color);
   }
 }

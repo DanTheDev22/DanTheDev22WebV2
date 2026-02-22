@@ -1,9 +1,8 @@
-@use 'mixins';
-@use 'media';
+@use 'mixins.scss';
+@use 'media.scss';
 
 html {
   box-sizing: border-box;
-  /* NU pune max-width aici! */
 }
 
 *, *::before, *::after {
@@ -24,7 +23,7 @@ a {
 }
 
 body {
-  //@include mixins.fluid-text(18, 16);
+  @include mixins.fluid-text(16, 12);
   font-family: var(--font-inter),sans-serif;
   background-color: var(--color-brand-void);
   color: var(--color-white);

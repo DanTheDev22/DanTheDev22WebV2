@@ -1,3 +1,5 @@
+@use '../../styles/mixins.scss';
+
 .services {
   position: relative;
   width: 100%;
@@ -98,7 +100,7 @@
   }
 
   &__heading-gradient {
-    //@include gradient-text(var(--color-brand-purple), var(--color-brand-magenta));
+    @include mixins.gradient-text(var(--color-brand-purple), var(--color-brand-magenta));
   }
 
   &__description {
@@ -139,9 +141,9 @@
   justify-content: space-between;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(255, 255, 255, 0.05);
-  //@include backdrop-blur(12px);
-  //@include transition(all, transform, border-color, box-shadow);
-  transition-duration: var(--transition-slow);
+  @include mixins.backdrop-blur(12px);
+  @include mixins.transition(all, transform, border-color, box-shadow);
+  transition-duration: var(--transition-duration-slow);
   overflow: hidden;
 
   &__gradient {
@@ -149,8 +151,8 @@
     inset: 0;
     background: linear-gradient(to bottom right, rgba(var(--color-brand-purple), 0.1), transparent);
     opacity: 0;
-    //@include transition(opacity);
-    transition-duration: var(--transition-slow);
+    @include mixins.transition(opacity);
+    transition-duration: var(--transition-duration-slow);
   }
 
   &:hover {
@@ -165,7 +167,7 @@
     }
 
     .service-card__title {
-      //@include gradient-text(var(--color-white), var(--color-brand-purple));
+      @include mixins.gradient-text(var(--color-white), var(--color-brand-purple));
     }
   }
 
@@ -174,7 +176,7 @@
     box-shadow: 0 20px 40px -15px rgba(var(--color-brand-purple), 0.2);
 
     .service-card__title {
-      //@include gradient-text(var(--color-white), var(--color-brand-purple));
+      @include mixins.gradient-text(var(--color-white), var(--color-brand-purple));
     }
   }
 
@@ -192,7 +194,7 @@
       box-shadow: 0 20px 40px -15px rgba(var(--color-brand-magenta), 0.2);
 
       .service-card__title {
-        //@include gradient-text(var(--color-white), var(--color-brand-magenta));
+        @include mixins.gradient-text(var(--color-white), var(--color-brand-magenta));
       }
     }
   }
@@ -211,8 +213,8 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 14px;
-    //@include transition(transform);
-    transition-duration: var(--transition-slow);
+    @include mixins.transition(transform);
+    transition-duration: var(--transition-duration-slow);
 
     &--purple {
       background: rgba(var(--color-brand-dark-purple), 0.3);
@@ -244,7 +246,7 @@
     color: var(--color-white);
     letter-spacing: -0.5px;
     line-height: 25px;
-    //@include transition(all);
+    @include mixins.transition(all);
   }
 
   &__description {

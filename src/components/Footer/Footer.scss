@@ -1,10 +1,12 @@
+@use '../../styles/mixins.scss';
 
 .footer {
+  position: relative;
   z-index: var(--z-content);
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(var(--color-black), 0.4);
-  //@include backdrop-blur(12px);
+  @include mixins.backdrop-blur(12px);
   padding-block: 32px;
 
   &__container {
@@ -33,7 +35,7 @@
     font-size: 12px;
     color: var(--color-gray-500);
     text-decoration: none;
-    //@include transition(color);
+    @include mixins.transition(color);
 
     &:hover {
       color: var(--color-white);

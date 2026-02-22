@@ -1,28 +1,26 @@
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 export class Projects {
     constructor() {
-        this.projectsData = [
-            {
-                title: "E-Commerce Platform",
-                desc: "Full-stack online store with payment integration and admin dashboard. Scalable architecture handling thousands of SKUs.",
-                tags: ["React", "Spring Boot", "PostgreSQL"]
-            },
-            {
-                title: "Task Management App",
-                desc: "Collaborative project management tool with real-time updates and team analytics features.",
-                tags: ["React", "Java", "REST"]
-            },
-            {
-                title: "Portfolio Website",
-                desc: "Modern, responsive portfolio with smooth 3D animations and high-performance optimizations.",
-                tags: ["TypeScript", "Tailwind", "React"]
-            }
-        ];
-        this.projectTriggers = document.querySelectorAll('.project-image');
+        this.swiper = null;
         this.infoContainer = document.getElementById('project-info-container');
         this.projTitle = document.getElementById('proj-title');
         this.projDesc = document.getElementById('proj-desc');
         this.projTags = document.getElementById('proj-tags');
-        this.observer = null;
+
+        this.projectsData = [
+            {
+                title: "TradeBot",
+                desc: "A Telegram Bot designed to provide real-time financial data and personalized tools for traders and investors.",
+                tags: ["Spring Boot", "PostgreSQL", "Redis", "Docker", "Heroku"],
+                github: "https://github.com/DanTheDev22/Tradebot",
+                demo: "https://t.me/my_trading_assist_bot"
+            }
+        ];
 
         this.setup();
     }
@@ -32,24 +30,31 @@ export class Projects {
     }
 
     setup() {
-        this.initScrollSpy();
-    }
+        this.swiper = new Swiper('.projects__images', {
+            modules: [Navigation, Pagination],
+            direction: 'vertical',
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                slideChange: () => {
+                    const index = this.swiper.activeIndex;
+                    this.updateProjectInfo(this.projectsData[index]);
+                },
+            },
+        });
 
-    initScrollSpy() {
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const idx = entry.target.getAttribute('data-index');
-                    this.updateProjectInfo(this.projectsData[idx]);
-                }
-            });
-        }, { rootMargin: '-40% 0px -40% 0px', threshold: 0.2 });
-
-        this.projectTriggers.forEach(trigger => this.observer.observe(trigger));
+        this.updateProjectInfo(this.projectsData[0]);
     }
 
     updateProjectInfo(data) {
-        if (!data) return;
+        if (!data || !this.infoContainer) return;
 
         this.infoContainer.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
         this.infoContainer.style.opacity = '0.5';
@@ -58,14 +63,13 @@ export class Projects {
         setTimeout(() => {
             this.projTitle.textContent = data.title;
             this.projDesc.textContent = data.desc;
+            this.projTags.innerHTML = data.tags
+                .map(tag => `<span class="projects__tag">${tag}</span>`)
+                .join('');
 
-            this.projTags.innerHTML = '';
-            data.tags.forEach(tag => {
-                const span = document.createElement('span');
-                span.className = 'projects__tag';
-                span.textContent = tag;
-                this.projTags.appendChild(span);
-            });
+            const [primary, secondary] = document.querySelectorAll('.projects__button');
+            if (primary) primary.href = data.github;
+            if (secondary) secondary.href = data.demo;
 
             this.infoContainer.style.opacity = '1';
             this.infoContainer.style.transform = 'translateY(0)';
@@ -73,9 +77,7 @@ export class Projects {
     }
 
     destroy() {
-        if (this.observer) {
-            this.observer.disconnect();
-            this.observer = null;
-        }
+        this.swiper?.destroy(true, true);
+        this.swiper = null;
     }
 }

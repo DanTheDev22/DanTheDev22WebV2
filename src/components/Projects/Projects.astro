@@ -9,58 +9,67 @@ import './Projects.scss'
     </div>
 
     <div class="projects__container">
-        <div class="projects__images">
-            <div class="project-image" data-index="0">
-                <div class="project-image__bg">
-                    <div class="project-image__placeholder">
-                        <i data-lucide="shopping-cart" class="project-image__icon"></i>
+        <div class="projects__images swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide project-image" data-index="0">
+                    <div class="project-image__bg swiper-wrapper">
+                            <div class="swiper-slide"><video src="/videos/1.provider.mp4"  autoplay loop muted playsinline ></video></div>
+                            <div class="swiper-slide"><video src="/videos/2.commands.mp4"  autoplay loop muted playsinline ></video></div>
+                            <div class="swiper-slide"><video src="/videos/3.alerts.mp4"    autoplay loop muted playsinline ></video></div>
+                        <div class="swiper-pagination"></div>
                     </div>
+                    <div class="project-image__overlay"></div>
                 </div>
-                <div class="project-image__overlay"></div>
+
+                <!--<div class="swiper-slide project-image" data-index="1">-->
+                <!--    <div class="project-image__bg">-->
+                <!--        <div class="project-image__placeholder">-->
+                <!--            <i data-lucide="check-square" class="project-image__icon"></i>-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--    <div class="project-image__overlay"></div>-->
+                <!--</div>-->
+
+                <!--<div class="swiper-slide project-image" data-index="2">-->
+                <!--    <div class="project-image__bg">-->
+                <!--        <div class="project-image__placeholder">-->
+                <!--            <i data-lucide="monitor" class="project-image__icon"></i>-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--    <div class="project-image__overlay"></div>-->
+                <!--</div>-->
             </div>
 
-            <div class="project-image" data-index="1">
-                <div class="project-image__bg">
-                    <div class="project-image__placeholder">
-                        <i data-lucide="check-square" class="project-image__icon"></i>
-                    </div>
-                </div>
-                <div class="project-image__overlay"></div>
-            </div>
-
-            <div class="project-image" data-index="2">
-                <div class="project-image__bg">
-                    <div class="project-image__placeholder">
-                        <i data-lucide="monitor" class="project-image__icon"></i>
-                    </div>
-                </div>
-                <div class="project-image__overlay"></div>
-            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
 
         <div class="projects__content">
             <div class="projects__info" id="project-info-container">
                 <div class="projects__title-wrapper">
                     <div class="projects__title-line"></div>
-                    <h3 id="proj-title" class="projects__title">E-Commerce Platform</h3>
+                    <h3 id="proj-title" class="projects__title">TradeBot</h3>
                 </div>
 
                 <p id="proj-desc" class="projects__description">
-                    Full-stack online store with payment integration and admin dashboard. Scalable architecture handling thousands of SKUs.
+                    A Telegram Bot designed to provide real-time financial data and personalized tools for traders and investors.
                 </p>
 
                 <div id="proj-tags" class="projects__tags">
-                    <span class="projects__tag">React</span>
                     <span class="projects__tag">Spring Boot</span>
                     <span class="projects__tag">PostgreSQL</span>
+                    <span class="projects__tag">Redis</span>
+                    <span class="projects__tag">Docker</span>
+                    <span class="projects__tag">Heroku</span>
                 </div>
 
                 <div class="projects__actions">
-                    <a href="#" class="projects__button projects__button--primary">
+                    <a href="https://github.com/DanTheDev22/Tradebot" class="projects__button projects__button--primary">
                         View Project
                         <i data-lucide="arrow-up-right" class="projects__button-icon"></i>
                     </a>
-                    <a href="#" class="projects__button projects__button--secondary">Live Demo</a>
+                    <a href="https://t.me/my_trading_assist_bot" target="_blank" class="projects__button projects__button--secondary">Live Demo</a>
                 </div>
             </div>
         </div>
