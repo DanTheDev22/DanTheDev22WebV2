@@ -23,17 +23,6 @@ export function initNavbar() {
         setTimeout(() => logoElement?.classList.remove('glitch-active'), 400);
     }, 5000);
 
-    // Mobile menu
-    mobileMenuBtn?.addEventListener('click', () => {
-        mobileMenu?.classList.toggle('navbar__mobile-menu--open');
-    });
-
-    mobileMenu?.querySelectorAll('.navbar__mobile-link').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('navbar__mobile-menu--open');
-        });
-    });
-
     // Cleanup
     return () => clearInterval(glitchInterval);
 }

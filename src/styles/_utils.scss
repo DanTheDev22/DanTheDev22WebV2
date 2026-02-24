@@ -7,13 +7,6 @@
   width: 100%;
 }
 
-.container--header {
-  max-width: var(--container-width-header);
-  margin: 0 auto;
-  width: 100%;
-  padding-inline: 48px;
-}
-
 .visually-hidden {
   @include mixins.visually-hidden;
 }

@@ -1,9 +1,14 @@
 @use '../../styles/mixins.scss';
+@use '../../styles/media.scss';
 
 .contact {
   position: relative;
   z-index: var(--z-content);
-  padding-block: 128px 144px;
+  padding-block: 128px;
+
+  @include media.mobile {
+    padding-block: 64px;
+  }
 
   &__container {
     display: flex;
@@ -46,6 +51,15 @@
     width: 100%;
     max-width: 558px;
     box-sizing: content-box;
+
+    @include media.mobile {
+      max-width: clamp(300px, 350px, 450px);
+    }
+
+    @include media.mobile-s {
+      max-width: 300px;
+      padding:25px;
+    }
   }
 
   &__field {
