@@ -1,5 +1,6 @@
 ---
 import './Services.scss'
+import {ArrowRight, Layers, Rocket, ShoppingBag, Network} from  '@lucide/astro';
 ---
 
 <section class="services" id="services-wrapper">
@@ -18,71 +19,55 @@ import './Services.scss'
                 <h2 class="services__heading">
                     My<br><span class="services__heading-gradient">Services</span>
                 </h2>
-                <p class="services__description">Comprehensive digital solutions tailored to scale. Scroll to explore the full range of capabilities.</p>
+                <p class="services__description">I help businesses grow online with solutions that actually work. Scroll down to see what I can build for you.</p>
                 <div class="services__scroll-hint">
-                    <i data-lucide="arrow-right" class="services__scroll-icon"></i>
+                    <ArrowRight data-lucide="arrow-right" class="services__scroll-icon"></ArrowRight>
                     <span>Scroll Down to Swipe</span>
                 </div>
             </div>
 
             <div class="service-card service-card--purple">
-                <div class="service-card__gradient"></div>
                 <div class="service-card__content">
-                    <div class="service-card__icon-wrapper service-card__icon-wrapper--purple">
-                        <i data-lucide="layers" class="service-card__icon service-card__icon--purple"></i>
+                    <div class="service-card__icon-wrapper">
+                        <Layers data-lucide="layers" class="service-card__icon service-card__icon--purple"></Layers>
                     </div>
                     <h3 class="service-card__title">Full Stack Development</h3>
-                    <p class="service-card__description">Complete web apps from ground up. React frontends + Java Spring Boot backends for scalable solutions.</p>
+                    <p class="service-card__description">From idea to production-ready platform. I design and develop scalable web applications with clean architecture, high performance, and long-term maintainability.</p>
                 </div>
-                <div class="service-card__footer"><span>React</span>•<span>Spring</span>•<span>SQL</span></div>
+                <div class="service-card__footer"><span>React</span>•<span>Spring</span>•<span>PostgreSQL</span></div>
             </div>
 
             <div class="service-card service-card--magenta">
-                <div class="service-card__gradient"></div>
                 <div class="service-card__content">
-                    <div class="service-card__icon-wrapper service-card__icon-wrapper--magenta">
-                        <i data-lucide="terminal-square" class="service-card__icon service-card__icon--magenta"></i>
+                    <div class="service-card__icon-wrapper ">
+                        <ShoppingBag data-lucide="shopping-bag" class="service-card__icon service-card__icon--magenta"></ShoppingBag>
                     </div>
-                    <h3 class="service-card__title">Custom Web Apps</h3>
-                    <p class="service-card__description">Tailored business solutions. Admin dashboards, SaaS platforms, and internal management tools.</p>
+                    <h3 class="service-card__title">E-Commerce Development</h3>
+                    <p class="service-card__description">More than a store — a conversion engine. I build fast, SEO-friendly e-commerce platforms optimized for performance, user flow, and secure transactions.</p>
                 </div>
-                <div class="service-card__footer"><span>SaaS</span>•<span>Dash</span>•<span>CRM</span></div>
+                <div class="service-card__footer"><span>Stripe</span>•<span>Custom Admin</span>•<span>Performance Optimization</span></div>
             </div>
 
             <div class="service-card service-card--purple">
-                <div class="service-card__gradient"></div>
                 <div class="service-card__content">
-                    <div class="service-card__icon-wrapper service-card__icon-wrapper--purple">
-                        <i data-lucide="shopping-bag" class="service-card__icon service-card__icon--purple"></i>
+                    <div class="service-card__icon-wrapper">
+                        <Rocket data-lucide="rocket" class="service-card__icon service-card__icon--purple"></Rocket>
                     </div>
-                    <h3 class="service-card__title">E-Commerce</h3>
-                    <p class="service-card__description">High-converting online stores with secure payments, inventory management, and intuitive admin.</p>
+                    <h3 class="service-card__title">SEO Optimization</h3>
+                    <p class="service-card__description">Technical SEO that goes beyond keywords. I optimize structure, performance, and crawlability to improve visibility and organic traffic.</p>
                 </div>
-                <div class="service-card__footer"><span>Stripe</span>•<span>Stock</span>•<span>Stats</span></div>
+                <div class="service-card__footer"><span>Technical SEO</span>•<span>Core Web Vitals</span></div>
             </div>
 
             <div class="service-card service-card--magenta">
-                <div class="service-card__gradient"></div>
                 <div class="service-card__content">
-                    <div class="service-card__icon-wrapper service-card__icon-wrapper--magenta">
-                        <i data-lucide="network" class="service-card__icon service-card__icon--magenta"></i>
+                    <div class="service-card__icon-wrapper">
+                        <Network data-lucide="network" class="service-card__icon service-card__icon--magenta"></Network>
                     </div>
-                    <h3 class="service-card__title">API Dev & Integration</h3>
-                    <p class="service-card__description">Designing RESTful APIs and Microservices. Connecting systems seamlessly with solid documentation.</p>
+                    <h3 class="service-card__title">Performance & Conversion Optimization</h3>
+                    <p class="service-card__description">You don’t need more visitors. You need better performance and smarter funnels. I optimize speed, UX, and user flows to increase conversions and reduce drop-offs.</p>
                 </div>
-                <div class="service-card__footer"><span>REST</span>•<span>GQL</span>•<span>Micro</span></div>
-            </div>
-
-            <div class="service-card service-card--purple">
-                <div class="service-card__gradient"></div>
-                <div class="service-card__content">
-                    <div class="service-card__icon-wrapper service-card__icon-wrapper--purple">
-                        <i data-lucide="rocket" class="service-card__icon service-card__icon--purple"></i>
-                    </div>
-                    <h3 class="service-card__title">Modernization</h3>
-                    <p class="service-card__description">Transforming legacy systems into modern high-performance apps. Refactoring and stack migration.</p>
-                </div>
-                <div class="service-card__footer"><span>Fix</span>•<span>Speed</span>•<span>Migrate</span></div>
+                <div class="service-card__footer"><span>Speed</span>•<span>UX</span>•<span>Conversion</span></div>
             </div>
         </div>
     </div>

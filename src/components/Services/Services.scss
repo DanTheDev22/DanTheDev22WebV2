@@ -1,10 +1,12 @@
 @use '../../styles/mixins.scss';
+@use '../../styles/media.scss';
 
 .services {
   position: relative;
   width: 100%;
-  height: 900px;
+  min-height: 100vh; // fallback before JS sets the real height
   z-index: var(--z-content);
+  // remove: height: 900px
 
   &__sticky-container {
     position: sticky;
@@ -52,11 +54,20 @@
     align-items: center;
     gap: 40px;
     padding: 0 96px;
-    width: max-content;
+    width: fit-content;
     height: 100%;
     position: relative;
     z-index: 10;
     will-change: transform;
+
+    @include media.mobile {
+      padding: 0 48px;
+      gap: 25px;
+    }
+
+    @include media.mobile-s {
+      padding: 0 24px;
+    }
   }
 
   &__title-block {
@@ -66,6 +77,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 24px;
+
+    @include media.mobile {
+      width: 350px;
+    }
   }
 
   &__header {
@@ -97,6 +112,16 @@
     letter-spacing: -4.8px;
     color: var(--color-white);
     line-height: 96px;
+
+    @include media.mobile {
+      font-size: 72px;
+      line-height: 72px;
+    }
+
+    @include media.mobile-s {
+      font-size: 60px;
+      line-height: 60px;
+    }
   }
 
   &__heading-gradient {
@@ -119,7 +144,6 @@
     font-weight: 400;
     line-height: 20px;
     color: var(--color-gray-500);
-    //margin-top: var(--spacing-8);
   }
 
   &__scroll-icon {
@@ -143,60 +167,20 @@
   background: rgba(255, 255, 255, 0.05);
   @include mixins.backdrop-blur(12px);
   @include mixins.transition(all, transform, border-color, box-shadow);
-  transition-duration: var(--transition-duration-slow);
+  transition-duration: var(--transition-duration-base);
   overflow: hidden;
 
-  &__gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom right, rgba(var(--color-brand-purple), 0.1), transparent);
-    opacity: 0;
-    @include mixins.transition(opacity);
-    transition-duration: var(--transition-duration-slow);
+  @include media.mobile {
+    width: 300px;
   }
 
   &:hover {
     transform: translateY(-0.5rem);
 
-    .service-card__gradient {
-      opacity: 1;
-    }
-
     .service-card__icon-wrapper {
       transform: scale(1.1);
     }
 
-    .service-card__title {
-      @include mixins.gradient-text(var(--color-white), var(--color-brand-purple));
-    }
-  }
-
-  &--purple:hover {
-    border-color: rgba(var(--color-brand-purple), 0.4);
-    box-shadow: 0 20px 40px -15px rgba(var(--color-brand-purple), 0.2);
-
-    .service-card__title {
-      @include mixins.gradient-text(var(--color-white), var(--color-brand-purple));
-    }
-  }
-
-  &--magenta {
-    .service-card__gradient {
-      background: linear-gradient(to bottom right, rgba(var(--color-brand-magenta), 0.1), transparent);
-    }
-
-    .service-card__footer {
-      color: rgba(var(--color-brand-magenta), 0.8);
-    }
-
-    &:hover {
-      border-color: rgba(var(--color-brand-magenta), 0.4);
-      box-shadow: 0 20px 40px -15px rgba(var(--color-brand-magenta), 0.2);
-
-      .service-card__title {
-        @include mixins.gradient-text(var(--color-white), var(--color-brand-magenta));
-      }
-    }
   }
 
   &__content {
@@ -269,5 +253,6 @@
     font-weight: 400;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
   }
 }

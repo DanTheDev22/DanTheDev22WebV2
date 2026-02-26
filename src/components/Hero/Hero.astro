@@ -8,11 +8,11 @@ import './Hero.scss'
             <h1 class="hero__title">
                 Full-Stack Developer
                 <span class="hero__subtitle">
-          Building scalable web products<br>from idea to production.
+          Your idea. My code. Real impact.
         </span>
             </h1>
             <p class="hero__description">
-                I design, develop and deploy modern web applications focused on performance, security and real users.
+                I design, develop, and deploy modern web apps that solve problems, delight users, and grow your business.
             </p>
         </div>
 
@@ -31,7 +31,7 @@ import './Hero.scss'
         </div>
     </div>
 
-    <div class="hero__scene">
+    <div class="hero__scene hidden-mobile">
         <!-- Tech Card -->
         <div class="tech-card" id="tech-card">
             <div class="tech-card__header">
@@ -63,9 +63,6 @@ import './Hero.scss'
 
         <!-- 3D Scene -->
         <div class="tilt-wrapper" id="tilt-wrapper">
-            <div class="orbit-ring orbit-ring--outer"></div>
-            <div class="orbit-ring orbit-ring--inner"></div>
-
             <!-- Backend Node -->
             <div class="node node--backend" id="node-backend">
                 <div class="node__glow"></div>
@@ -141,3 +138,11 @@ import './Hero.scss'
         </div>
     </div>
 </main>
+
+<script>
+    import { HeroScene } from './Hero.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        new HeroScene();
+    });
+</script>
