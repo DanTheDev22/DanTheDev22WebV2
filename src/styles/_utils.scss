@@ -2,7 +2,7 @@
 @use 'media';
 
 .container {
-  max-width: var(--container-width-default);
+  max-width: calc( var(--container-width-default) + (var(--container-padding-x) * 2));
   margin-inline: auto;
   width: 100%;
 }

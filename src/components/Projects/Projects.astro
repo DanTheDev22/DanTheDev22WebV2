@@ -1,5 +1,6 @@
 ---
 import './Projects.scss'
+import {ArrowUpRight} from  '@lucide/astro';
 ---
 
 <section class="projects container" id="projects-section">
@@ -11,28 +12,31 @@ import './Projects.scss'
     <div class="projects__container">
 
         <!-- ── Desktop ── -->
-        <div class="projects__images swiper hidden-mobile" id="projects-desktop-swiper">
-            <div class="swiper-wrapper">
+        <!-- ── Desktop ── -->
+        <div class="projects__images hidden-mobile">  <!-- ✅ removed: swiper, id="projects-desktop-swiper" -->
 
-                <div class="swiper-slide project-image" data-index="0">
-                    <div class="project-image__bg swiper" id="project-video-swiper-0">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
-                            <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>
-                            <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>
-                        </div>
-                        <div class="swiper-pagination project-video-pagination"></div>
+            <div class="project-image" data-index="0">  <!-- ✅ removed: swiper-slide -->
+                <div class="project-image__bg swiper" id="project-video-swiper-0">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
+                        <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>
+                        <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>
                     </div>
-                    <div class="project-image__overlay"></div>
+                    <div class="swiper-pagination project-video-pagination"></div>
                 </div>
-
-                <!-- Add more project slides here following the same pattern -->
-
             </div>
 
-            <div class="swiper-pagination projects-desktop-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="project-image" data-index="1">  <!-- ✅ removed: swiper-slide -->
+                <div class="project-image__bg swiper" id="project-video-swiper-1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
+                        <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>
+                        <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>
+                    </div>
+                    <div class="swiper-pagination project-video-pagination"></div>
+                </div>
+            </div>
+
         </div>
 
         <div class="projects__content hidden-mobile">
@@ -54,7 +58,7 @@ import './Projects.scss'
                 <div class="projects__actions">
                     <a href="https://github.com/DanTheDev22/Tradebot" id="proj-github" class="projects__button projects__button--primary">
                         View Project
-                        <i data-lucide="arrow-up-right" class="projects__button-icon"></i>
+                        <ArrowUpRight data-lucide="ArrowUpRight" class="projects__button-icon"></ArrowUpRight>
                     </a>
                     <a href="https://t.me/my_trading_assist_bot" id="proj-demo" target="_blank" class="projects__button projects__button--secondary">Live Demo</a>
                 </div>
@@ -62,52 +66,54 @@ import './Projects.scss'
         </div>
 
         <!-- ── Mobile ── -->
-        <div class="projects__mobile visible-mobile">
-            <div class="swiper projects-mobile-swiper">
-                <div class="swiper-wrapper">
+        <!--<div class="projects__mobile visible-mobile">-->
+        <!--    <div class="swiper projects-mobile-swiper">-->
+        <!--        <div class="swiper-wrapper">-->
 
-                    <!-- Slide 0 -->
-                    <div class="swiper-slide project-mobile">
-                        <div class="project-mobile__image">
-                            <div class="swiper project-mobile__video-swiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
-                                    <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>
-                                    <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>
-                                </div>
-                                <div class="swiper-pagination project-mobile-video-pagination"></div>
-                            </div>
-                        </div>
-                        <div class="project-mobile__content">
-                            <h3 class="project-mobile__title">TradeBot</h3>
-                            <p class="project-mobile__description">A Telegram Bot designed to provide real-time financial data and personalized tools for traders and investors.</p>
-                            <div class="project-mobile__tags">
-                                <span class="projects__tag">Spring Boot</span>
-                                <span class="projects__tag">PostgreSQL</span>
-                                <span class="projects__tag">Redis</span>
-                                <span class="projects__tag">Docker</span>
-                                <span class="projects__tag">Heroku</span>
-                            </div>
-                        </div>
-                        <div class="projects__actions">
-                            <a href="https://github.com/DanTheDev22/Tradebot" class="projects__button projects__button--primary">
-                                View Project
-                                <i data-lucide="arrow-up-right" class="projects__button-icon"></i>
-                            </a>
-                            <a href="https://t.me/my_trading_assist_bot" target="_blank" class="projects__button projects__button--secondary">Live Demo</a>
-                        </div>
-                    </div>
+        <!--            &lt;!&ndash; Slide 0 &ndash;&gt;-->
+        <!--            <div class="swiper-slide project-mobile">-->
+        <!--                <div class="project-mobile__image">-->
+        <!--                    <div class="swiper project-mobile__video-swiper">-->
+        <!--                        <div class="swiper-wrapper">-->
+        <!--                            <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>-->
+        <!--                            <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>-->
+        <!--                            <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>-->
+        <!--                        </div>-->
+        <!--                        <div class="swiper-pagination project-mobile-video-pagination"></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="project-mobile__content">-->
+        <!--                    <h3 class="project-mobile__title">TradeBot</h3>-->
+        <!--                    <p class="project-mobile__description">A Telegram Bot designed to provide real-time financial data and personalized tools for traders and investors.</p>-->
+        <!--                    <div class="project-mobile__tags">-->
+        <!--                        <span class="projects__tag">Spring Boot</span>-->
+        <!--                        <span class="projects__tag">PostgreSQL</span>-->
+        <!--                        <span class="projects__tag">Redis</span>-->
+        <!--                        <span class="projects__tag">Docker</span>-->
+        <!--                        <span class="projects__tag">Heroku</span>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="projects__actions">-->
+        <!--                    <a href="https://github.com/DanTheDev22/Tradebot" class="projects__button projects__button&#45;&#45;primary">-->
+        <!--                        View Project-->
+        <!--                        <i data-lucide="arrow-up-right" class="projects__button-icon"></i>-->
+        <!--                    </a>-->
+        <!--                    <a href="https://t.me/my_trading_assist_bot" target="_blank" class="projects__button projects__button&#45;&#45;secondary">Live Demo</a>-->
+        <!--                </div>-->
+        <!--            </div>-->
 
-                    <!-- Add more slides here following the same pattern -->
+        <!--            &lt;!&ndash; Add more slides here following the same pattern &ndash;&gt;-->
 
-                </div>
+        <!--        </div>-->
 
-                <!-- Mobile project-level pagination (dots between project cards) -->
-                <div class="swiper-pagination projects-mobile-pagination"></div>
-            </div>
-        </div>
+        <!--        &lt;!&ndash; Mobile project-level pagination (dots between project cards) &ndash;&gt;-->
+        <!--        <div class="swiper-pagination projects-mobile-pagination"></div>-->
+        <!--    </div>-->
+        <!--</div>-->
 
     </div>
+
+
 </section>
 
 <script>

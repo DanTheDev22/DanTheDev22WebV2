@@ -1,14 +1,12 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export class Projects {
     constructor() {
-        this.desktopSwiper = null;
-        this.videoSwipers = [];
-        this.mobileSwiper = null;
+        this.videoSwipers       = [];
+        this.mobileSwiper       = null;
         this.mobileVideoSwipers = [];
 
         this.infoContainer = document.getElementById('project-info-container');
@@ -26,8 +24,18 @@ export class Projects {
                 github: 'https://github.com/DanTheDev22/Tradebot',
                 demo:   'https://t.me/my_trading_assist_bot',
             },
+            {
+                title:  'TradeBot123123123',
+                desc:   'A Telegram Bot1321312321321312 designed to provide real-time financial data and personalized tools for traders and investors.',
+                tags:   ['Spring Bo12312312t', 'Postgre123123123SQL', 'Redis', 'Docker', 'Heroku'],
+                github: 'https://github.com/DanTheDev22/Tradebot',
+                demo:   'https://t.me/my_trading_assist_bot',
+            },
             // Add more projects here
         ];
+
+        this._isAnimating   = false;
+        this._cardListeners = [];
 
         this.setupDesktop();
         this.setupMobile();
@@ -40,43 +48,42 @@ export class Projects {
     // ─── Desktop ────────────────────────────────────────────────────────────────
 
     setupDesktop() {
-        // Inner video swipers (one per project slide)
+        // Video swipers
         document.querySelectorAll('[id^="project-video-swiper-"]').forEach((el, i) => {
-            const s = new Swiper(el, {
+            this.videoSwipers[i] = new Swiper(el, {
                 modules: [Pagination],
                 loop: true,
                 pagination: { el: el.querySelector('.project-video-pagination'), clickable: true },
             });
-            this.videoSwipers[i] = s;
         });
 
-        // Outer vertical swiper (between projects)
-        this.desktopSwiper = new Swiper('#projects-desktop-swiper', {
-            modules: [Navigation, Pagination],
-            direction: 'vertical',
-            loop: false,
-            pagination: { el: '.projects-desktop-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            on: {
-                slideChange: () => {
-                    const idx = this.desktopSwiper.activeIndex;
-                    this.updateProjectInfo(this.projectsData[idx]);
-                },
-            },
+        // Hover listeners — sole source of truth for active project
+        const cards = Array.from(document.querySelectorAll('.project-image[data-index]'));
+        if (!cards.length) return;
+
+        cards.forEach(card => {
+            const idx     = parseInt(card.dataset.index, 10);
+            const onEnter = () => this.updateProjectInfo(this.projectsData[idx]);
+
+            card.addEventListener('mouseenter', onEnter);
+            this._cardListeners.push({ card, onEnter });
         });
 
+        // Seed with first project on load
         this.updateProjectInfo(this.projectsData[0]);
     }
 
+    // ─── Info panel update (fade transition) ────────────────────────────────────
+
     updateProjectInfo(data) {
-        if (!data || !this.infoContainer) return;
+        if (!data || !this.infoContainer || this._isAnimating) return;
 
-        // Fade out
-        this.infoContainer.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-        this.infoContainer.style.opacity    = '0.5';
-        this.infoContainer.style.transform  = 'translateY(10px)';
+        this._isAnimating = true;
+        this.infoContainer.classList.add('is-transitioning');
 
-        setTimeout(() => {
+        const onTransitionEnd = () => {
+            this.infoContainer.removeEventListener('transitionend', onTransitionEnd);
+
             if (this.projTitle)  this.projTitle.textContent = data.title;
             if (this.projDesc)   this.projDesc.textContent  = data.desc;
             if (this.projTags)   this.projTags.innerHTML    = data.tags
@@ -85,26 +92,25 @@ export class Projects {
             if (this.projGithub) this.projGithub.href = data.github;
             if (this.projDemo)   this.projDemo.href   = data.demo;
 
-            // Fade in
-            this.infoContainer.style.opacity   = '1';
-            this.infoContainer.style.transform = 'translateY(0)';
-        }, 200);
+            void this.infoContainer.offsetWidth;
+            this.infoContainer.classList.remove('is-transitioning');
+            this._isAnimating = false;
+        };
+
+        this.infoContainer.addEventListener('transitionend', onTransitionEnd);
     }
 
     // ─── Mobile ─────────────────────────────────────────────────────────────────
 
     setupMobile() {
-        // Inner video swipers inside each mobile project card
-        document.querySelectorAll('.project-mobile__video-swiper').forEach((el) => {
-            const s = new Swiper(el, {
+        document.querySelectorAll('.project-mobile__video-swiper').forEach(el => {
+            this.mobileVideoSwipers.push(new Swiper(el, {
                 modules: [Pagination],
                 loop: true,
                 pagination: { el: el.querySelector('.project-mobile-video-pagination'), clickable: true },
-            });
-            this.mobileVideoSwipers.push(s);
+            }));
         });
 
-        // Outer horizontal swiper (between project cards)
         const mobileEl = document.querySelector('.projects-mobile-swiper');
         if (!mobileEl) return;
 
@@ -121,8 +127,10 @@ export class Projects {
     // ─── Cleanup ─────────────────────────────────────────────────────────────────
 
     destroy() {
-        this.desktopSwiper?.destroy(true, true);
-        this.desktopSwiper = null;
+        this._cardListeners.forEach(({ card, onEnter }) =>
+            card.removeEventListener('mouseenter', onEnter)
+        );
+        this._cardListeners = [];
 
         this.videoSwipers.forEach(s => s.destroy(true, true));
         this.videoSwipers = [];

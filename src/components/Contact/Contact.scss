@@ -4,7 +4,7 @@
 .contact {
   position: relative;
   z-index: var(--z-content);
-  padding-block: 128px;
+  padding-block: 80px;
 
   @include media.mobile {
     padding-block: 64px;

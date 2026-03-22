@@ -14,8 +14,8 @@
     align-items: center;
     justify-content: space-between;
     height: 5rem;
-    padding-inline: 48px;
     box-sizing: border-box;
+    padding-inline: 24px;
 
     @include media.mobile {
       padding-inline: 24px;
@@ -83,7 +83,7 @@
   }
 
   &__link {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 500;
     color: #9ca3af;
     text-transform: uppercase;
@@ -108,10 +108,14 @@
     border: none;
     color: #6B7280;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 500;
     transition: color 300ms ease;
     line-height: 15px;
+
+    @include media.mobile {
+      font-size: 14px;
+    }
 
     &--active {
       color: #ffffff;
