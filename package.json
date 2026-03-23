@@ -22,7 +22,7 @@
     "swiper": "^12.1.2"
   },
   "devDependencies": {
-    "astro": "^6.0.8",
+    "astro": "^5.18.1",
     "prettier": "^3.8.1"
   }
 }
