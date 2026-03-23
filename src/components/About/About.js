@@ -10,10 +10,10 @@ export function initAboutCounters() {
                 hasCounted = true;
                 animateCounter('exp-counter', 0, 2, 1000);
                 animateCounter('tech-mastered-counter', 0, 14, 1500);
-                observer.disconnect(); // Stop observing after animation
+                observer.disconnect();
             }
         });
-    }, { threshold: 0.3 }); // Lower threshold for better UX
+    }, { threshold: 0.3 });
 
     observer.observe(aboutSection);
 }

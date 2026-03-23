@@ -4,9 +4,8 @@
 .services {
   position: relative;
   width: 100%;
-  min-height: 100vh; // fallback before JS sets the real height
+  min-height: 100vh;
   z-index: var(--z-content);
-  // remove: height: 900px
 
   &__sticky-container {
     position: sticky;

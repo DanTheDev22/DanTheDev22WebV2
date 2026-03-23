@@ -9,15 +9,23 @@
   padding-block: 96px;
   padding-inline-start: 56px;
 
-  @include media.mobile {
-    padding-block: 48px;
+  @include media.tablet {
+    padding-block: 64px;
     padding-inline-start: 0;
+  }
+
+  @include media.mobile {
+    padding-block: 64px 0;
   }
 
   &__container {
     display: flex;
     gap: 120px;
     align-items: center;
+
+    @include media.tablet {
+      gap: 70px;
+    }
 
     @include media.mobile {
       flex-direction: column;
@@ -79,7 +87,7 @@
   &__placeholder-icon {
     width: 6rem;
     height: 6rem;
-    color: #374151;
+    color: var(--color-gray-700);
   }
 
   &__image-overlay {
@@ -104,11 +112,11 @@
   &__header-line {
     height: 1px;
     width: 3rem;
-    background: #DB2777;
+    background: var(--color-brand-magenta);
   }
 
   &__header-label {
-    color: #DB2777;
+    color: var(--color-brand-magenta);
     font-family: var(--font-mono), monospace;
     font-size: 12px;
     font-weight: 400;
@@ -121,7 +129,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    color: #d1d5db;
+    color: var(--color-gray-300);
     font-weight: 300;
     line-height: 30px;
     font-size: 18px;
@@ -132,12 +140,11 @@
   }
 
   &__highlight {
-    color: #ffffff;
+    color: var(--color-white);
     font-weight: 500;
   }
 
   &__stats {
-    padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     gap: 2rem;
@@ -174,11 +181,11 @@
 
   &__stat-plus {
     font-size: 1.875rem;
-    color: #7C3AED;
+    color: var(--color-brand-purple);
     font-weight: 600;
 
     &--cyan {
-      color: #06b6d4;
+      color: var(--color-cyan-500);
     }
   }
 

@@ -11,17 +11,15 @@
   }
 
   &__container {
-    display: flex;
+    @include mixins.flex-center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   &__header {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
     padding-bottom: 48px;
   }
 
@@ -35,7 +33,7 @@
   &__subtitle {
     color: var(--color-gray-400);
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   &__form {

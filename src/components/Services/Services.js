@@ -10,7 +10,6 @@ export function initServices() {
         return track.scrollWidth - window.innerWidth;
     }
 
-    // Make the section tall enough to scroll the full track width
     function setSectionHeight() {
         const overflow = getTrackOverflow();
         scrollSection.style.height = `${window.innerHeight + overflow}px`;

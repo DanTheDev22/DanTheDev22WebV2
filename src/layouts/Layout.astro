@@ -1,20 +1,29 @@
 ---
 import '../styles/main.scss'
- import Header from '../components/Header/Header.astro'
- import Footer from "../components/Footer/Footer.astro";
+import Header from '../components/Header/Header.astro'
+import Footer from "../components/Footer/Footer.astro";
 import SocialLinks from "../components/SocialLinks/SocialLinks.astro";
 import ResumeButton from "../components/ResumeButton/ResumeButton.astro";
+import Analytics from '@vercel/analytics/astro'
+import SpeedInsights from "@vercel/speed-insights/astro"
+import { SEO } from "astro-seo";
 ---
-
-
 
 <!doctype html>
 <html lang="en">
 	<head>
+		<SEO
+			title="Daniel Mogoreanu - Full Stack Developer"
+			description="A heavily optimized description full of well-researched keywords."
+			languageAlternates={[
+				{ hrefLang: "en", href: "https://danielmogoreanu.com/en" },
+				{ hrefLang: "ro", href: "https://danielmogoreanu.com/ro" },
+				{ hrefLang: "ru", href: "https://danielmogoreanu.com/ru" }
+			]}
+		/>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Web portfolio</title>
 	</head>
 	<body>
 		<Header></Header>
@@ -22,8 +31,11 @@ import ResumeButton from "../components/ResumeButton/ResumeButton.astro";
 			<slot/>
 		</main>
 		<Footer></Footer>
+
 	<SocialLinks/>
 	<ResumeButton/>
+	<Analytics/>
+	<SpeedInsights/>
 	</body>
 </html>
 

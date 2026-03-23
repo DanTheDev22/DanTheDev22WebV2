@@ -22,7 +22,7 @@
 
     @include media.mobile {
       flex-direction: column;
-      gap: 24px;
+      gap: 16px;
     }
   }
 
@@ -62,7 +62,7 @@
     }
 
     @include media.mobile {
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 }

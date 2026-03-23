@@ -65,13 +65,13 @@
     &.glitch-active {
       &::before {
         animation: glitch-anim-1 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        color: #7C3AED;
+        color: var(--color-brand-purple);
         clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
       }
 
       &::after {
         animation: glitch-anim-2 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        color: #BE185D;
+        color: var(--color-brand-dark-magenta);
         clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
       }
     }
@@ -93,7 +93,7 @@
     line-height: 15px;
 
     &:hover {
-      color: #ffffff;
+      color: var(--color-white);
     }
   }
 
@@ -118,11 +118,11 @@
     }
 
     &--active {
-      color: #ffffff;
+      color: var(--color-white);
     }
 
     &:hover {
-      color: #ffffff;
+      color: var(--color-white);
     }
   }
 
