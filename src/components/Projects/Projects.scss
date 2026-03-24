@@ -12,6 +12,11 @@
   padding: 96px 48px;
   gap: 64px;
 
+  @include media.mobile {
+    padding: 64px;
+    gap: 32px;
+  }
+
 
   &__header {
     display: flex;
@@ -43,6 +48,10 @@
     width: 100%;
     position: relative;
     height: 900px;
+
+    @include media.mobile {
+      gap: 12px;
+    }
   }
 
   &__images {
@@ -125,7 +134,7 @@
 
   &__tag {
     padding: 6px 12px;
-    font-size: 12px;
+    font-size: 14px;
     font-family: var(--font-mono),monospace;
     font-weight: 500;
     line-height: 16px;
@@ -141,18 +150,29 @@
     align-items: flex-start;
     align-self: stretch;
     padding-top: 16px;
+
+    @include media.tablet {
+      flex-direction: column;
+    }
   }
 
   &__button {
     padding: var(--spacing-3) var(--spacing-5);
     border-radius: var(--radius-sm);
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
     @include mixins.transition(all);
+
+    @include media.tablet {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
 
     &--primary {
       background: var(--color-white);
@@ -239,6 +259,20 @@
     inset: 0;
     background: linear-gradient(to top, var(--color-black), rgba(var(--color-black), 0.4), transparent);
     opacity: 0.6;
+  }
+}
+
+.tba-wrapper {
+  @include mixins.flex-center;
+}
+
+.tba {
+  font-family: var(--font-mono),monospace;
+  font-size: 48px;
+  color: var(--color-white);
+
+  @include media.tablet {
+    font-size: 36px;
   }
 }
 

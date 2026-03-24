@@ -8,15 +8,18 @@
   min-height: 85vh;
   max-width: 80rem;
   margin: 0 auto;
-  padding: 6rem 3rem 0;
+  padding: 96px 24px 96px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 25px;
+  justify-content: space-between;
 
   @include media.tablet {
     flex-direction: column;
+  }
+
+  @include media.mobile {
+    padding-block: 80px 64px;
   }
 
   &__content {
@@ -48,7 +51,7 @@
     letter-spacing: -0.025em;
 
     @include media.mobile-s {
-    font-size: 3rem;
+    font-size: 64px;
     }
   }
 
@@ -64,7 +67,7 @@
     max-width: 400px;
 
     @include media.mobile-s {
-    font-size: 2rem;
+    font-size: 38px;
     }
   }
 

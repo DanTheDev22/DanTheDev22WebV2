@@ -12,10 +12,9 @@ import {ArrowUpRight} from  '@lucide/astro';
     <div class="projects__container">
 
         <!-- ── Desktop ── -->
-        <!-- ── Desktop ── -->
-        <div class="projects__images hidden-mobile">  <!-- ✅ removed: swiper, id="projects-desktop-swiper" -->
+        <div class="projects__images hidden-mobile">
 
-            <div class="project-image" data-index="0">  <!-- ✅ removed: swiper-slide -->
+            <div class="project-image" data-index="0">
                 <div class="project-image__bg swiper" id="project-video-swiper-0">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
@@ -26,16 +25,22 @@ import {ArrowUpRight} from  '@lucide/astro';
                 </div>
             </div>
 
-            <div class="project-image" data-index="1">  <!-- ✅ removed: swiper-slide -->
-                <div class="project-image__bg swiper" id="project-video-swiper-1">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
-                        <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>
-                        <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>
-                    </div>
-                    <div class="swiper-pagination project-video-pagination"></div>
+            <div class="project-image" data-index="1">
+                <div class="project-image__bg tba-wrapper" id="project-video-swiper-1">
+                    <h1 class="tba">To be announced</h1>
                 </div>
             </div>
+
+            <!--<div class="project-image" data-index="1">-->
+            <!--    <div class="project-image__bg swiper" id="project-video-swiper-1">-->
+            <!--        <div class="swiper-wrapper">-->
+            <!--            <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>-->
+            <!--            <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>-->
+            <!--            <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>-->
+            <!--        </div>-->
+            <!--        <div class="swiper-pagination project-video-pagination"></div>-->
+            <!--    </div>-->
+            <!--</div>-->
 
         </div>
 
@@ -65,51 +70,50 @@ import {ArrowUpRight} from  '@lucide/astro';
             </div>
         </div>
 
-        <!-- ── Mobile ── -->
-        <!--<div class="projects__mobile visible-mobile">-->
-        <!--    <div class="swiper projects-mobile-swiper">-->
-        <!--        <div class="swiper-wrapper">-->
+        <div class="projects__mobile visible-mobile">
+            <div class="swiper projects-mobile-swiper">
+                <div class="swiper-wrapper">
 
-        <!--            &lt;!&ndash; Slide 0 &ndash;&gt;-->
-        <!--            <div class="swiper-slide project-mobile">-->
-        <!--                <div class="project-mobile__image">-->
-        <!--                    <div class="swiper project-mobile__video-swiper">-->
-        <!--                        <div class="swiper-wrapper">-->
-        <!--                            <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>-->
-        <!--                            <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>-->
-        <!--                            <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>-->
-        <!--                        </div>-->
-        <!--                        <div class="swiper-pagination project-mobile-video-pagination"></div>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="project-mobile__content">-->
-        <!--                    <h3 class="project-mobile__title">TradeBot</h3>-->
-        <!--                    <p class="project-mobile__description">A Telegram Bot designed to provide real-time financial data and personalized tools for traders and investors.</p>-->
-        <!--                    <div class="project-mobile__tags">-->
-        <!--                        <span class="projects__tag">Spring Boot</span>-->
-        <!--                        <span class="projects__tag">PostgreSQL</span>-->
-        <!--                        <span class="projects__tag">Redis</span>-->
-        <!--                        <span class="projects__tag">Docker</span>-->
-        <!--                        <span class="projects__tag">Heroku</span>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="projects__actions">-->
-        <!--                    <a href="https://github.com/DanTheDev22/Tradebot" class="projects__button projects__button&#45;&#45;primary">-->
-        <!--                        View Project-->
-        <!--                        <i data-lucide="arrow-up-right" class="projects__button-icon"></i>-->
-        <!--                    </a>-->
-        <!--                    <a href="https://t.me/my_trading_assist_bot" target="_blank" class="projects__button projects__button&#45;&#45;secondary">Live Demo</a>-->
-        <!--                </div>-->
-        <!--            </div>-->
+                    <!-- Slide 0 -->
+                    <div class="swiper-slide project-mobile">
+                        <div class="project-mobile__image">
+                            <div class="swiper project-mobile__video-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>
+                                </div>
+                                <div class="swiper-pagination project-mobile-video-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="project-mobile__content">
+                            <h3 class="project-mobile__title">TradeBot</h3>
+                            <p class="project-mobile__description">A Telegram Bot designed to provide real-time financial data and personalized tools for traders and investors.</p>
+                            <div class="project-mobile__tags">
+                                <span class="projects__tag">Spring Boot</span>
+                                <span class="projects__tag">PostgreSQL</span>
+                                <span class="projects__tag">Redis</span>
+                                <span class="projects__tag">Docker</span>
+                                <span class="projects__tag">Heroku</span>
+                            </div>
+                        </div>
+                        <div class="projects__actions">
+                            <a href="https://github.com/DanTheDev22/Tradebot" class="projects__button projects__button--primary">
+                                View Project
+                                <i data-lucide="arrow-up-right" class="projects__button-icon"></i>
+                            </a>
+                            <a href="https://t.me/my_trading_assist_bot" target="_blank" class="projects__button projects__button--secondary">Live Demo</a>
+                        </div>
+                    </div>
 
-        <!--            &lt;!&ndash; Add more slides here following the same pattern &ndash;&gt;-->
+                    <!-- Add more slides here following the same pattern -->
 
-        <!--        </div>-->
+                </div>
 
-        <!--        &lt;!&ndash; Mobile project-level pagination (dots between project cards) &ndash;&gt;-->
-        <!--        <div class="swiper-pagination projects-mobile-pagination"></div>-->
-        <!--    </div>-->
-        <!--</div>-->
+                <!-- Mobile project-level pagination (dots between project cards) -->
+                <div class="swiper-pagination projects-mobile-pagination"></div>
+            </div>
+        </div>
 
     </div>
 

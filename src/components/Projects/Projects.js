@@ -24,13 +24,6 @@ export class Projects {
                 github: 'https://github.com/DanTheDev22/Tradebot',
                 demo:   'https://t.me/my_trading_assist_bot',
             },
-            {
-                title:  'TradeBot123123123',
-                desc:   'A Telegram Bot1321312321321312 designed to provide real-time financial data and personalized tools for traders and investors.',
-                tags:   ['Spring Bo12312312t', 'Postgre123123123SQL', 'Redis', 'Docker', 'Heroku'],
-                github: 'https://github.com/DanTheDev22/Tradebot',
-                demo:   'https://t.me/my_trading_assist_bot',
-            },
             // Add more projects here
         ];
 
