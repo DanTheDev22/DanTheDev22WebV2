@@ -14,7 +14,7 @@ button,
 input,
 textarea,
 svg * {
-  transition-duration: var(--transition-duration-fast);
+  transition-duration: 200ms;
 }
 
 a {
@@ -24,9 +24,9 @@ a {
 
 body {
   @include mixins.fluid-text(16, 12);
-  font-family: var(--font-inter),sans-serif;
-  background-color: var(--color-brand-void);
-  color: var(--color-white);
+  font-family: var(--font-family), sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
@@ -35,8 +35,8 @@ body {
 }
 
 ::selection {
-  background-color: rgba(var(--color-brand-purple), 0.3);
-  color: var(--color-white);
+  //background-color: rgba(var(--color-brand-purple), 0.3);
+  //color: var(--color-white);
 }
 
 ::-webkit-scrollbar {
@@ -44,16 +44,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-dark-bg);
+  background: var(--bg-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: var(--bg);
   border-radius: 3px;
 
-  &:hover {
-    background: #475569;
-  }
+  //&:hover {
+  //  background: #475569;
+  //}
 }
 
 .hide-scroll {

@@ -1,8 +1,10 @@
 export class TechStack {
     constructor() {
         this.filterBtns = document.querySelectorAll('.tech-stack__filter');
-        this.techItems = document.querySelectorAll('.tech-item');
-        this.techGrid = document.getElementById('tech-grid');
+        this.techItems  = document.querySelectorAll('.tech-item');
+        this.techGrid   = document.getElementById('tech-grid');
+        this._timeouts     = [];
+        this._activeFilter = 'all';
     }
 
     init() {
@@ -12,45 +14,63 @@ export class TechStack {
 
     initFilters() {
         this.filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.handleFilter(btn);
-            });
+            btn.addEventListener('click', this._onFilterClick.bind(this));
         });
     }
 
-    handleFilter(activeBtn) {
-        this.filterBtns.forEach(b => b.classList.remove('tech-stack__filter--active'));
-        activeBtn.classList.add('tech-stack__filter--active');
+    // ─── private ─────────────────────────────────────────────
 
-        const filter = activeBtn.getAttribute('data-filter');
+    _onFilterClick(e) {
+        const btn    = e.currentTarget;
+        const filter = btn.dataset.filter;
 
-        this.techItems.forEach((item, index) => {
-            const category = item.getAttribute('data-category');
+        if (filter === this._activeFilter) return;
 
-            if (filter === 'all' || category === filter) {
-                item.style.display = 'flex';
-                setTimeout(() => item.classList.add('visible'), index * 50);
+        this.filterBtns.forEach(b => {
+            b.classList.toggle('tech-stack__filter--active', b === btn);
+        });
+
+        this._activeFilter = filter;
+        this._applyFilter(filter);
+    }
+
+    _applyFilter(filter) {
+        this._clearTimeouts();
+
+        let visibleIndex = 0;
+
+        this.techItems.forEach(item => {
+            const matches = filter === 'all' || item.dataset.category === filter;
+
+            if (matches) {
+                item.classList.remove('hidden');
+                const delay = visibleIndex++ * 50;
+                const id = setTimeout(() => item.classList.add('visible'), delay + 20); // +20 to let display resolve before animating
+                this._timeouts.push(id);
             } else {
                 item.classList.remove('visible');
-                setTimeout(() => item.style.display = 'none', 300);
+                const id = setTimeout(() => item.classList.add('hidden'), 300);
+                this._timeouts.push(id);
             }
         });
     }
 
+    _clearTimeouts() {
+        this._timeouts.forEach(clearTimeout);
+        this._timeouts = [];
+    }
+
     initScrollAnimation() {
+        if (!this.techGrid) return;
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.techItems.forEach((item, index) => {
-                        setTimeout(() => item.classList.add('visible'), index * 50);
-                    });
-                    observer.unobserve(entry.target);
-                }
+                if (!entry.isIntersecting) return;
+                this._applyFilter(this._activeFilter);
+                observer.unobserve(entry.target);
             });
         }, { threshold: 0.2 });
 
-        if (this.techGrid) {
-            observer.observe(this.techGrid);
-        }
+        observer.observe(this.techGrid);
     }
 }

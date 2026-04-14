@@ -2,24 +2,19 @@
 @use '../../styles/media.scss';
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
+  //position: fixed;
+  //top: 0;
+  //left: 0;
+  //right: 0;
+  //z-index: 50;
   transition: all 500ms ease-in-out;
 
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 5rem;
+    height: 80px;
     box-sizing: border-box;
-    padding-inline: 24px;
-
-    @include media.mobile {
-      padding-inline: 24px;
-    }
   }
 
   &.scrolled {
@@ -30,22 +25,25 @@
   }
 
   &__logo {
-    font-family: var(--font-mono), monospace;
-    font-size: 1rem;
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 1.5rem;
     letter-spacing: -0.8px;
     user-select: none;
     width: fit-content;
     text-decoration: none;
     display: block;
+
+    @include media.mobile-s {
+      font-size: 1.25rem;
+    }
   }
 
   &__logo-text {
     position: relative;
-    color: transparent;
-    background: linear-gradient(90deg, #8B5CF6, #DB2777);
+    color: var(--primary-color);
     -webkit-background-clip: text;
     background-clip: text;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 24px;
     transition: all 300ms ease;
 
@@ -65,13 +63,11 @@
     &.glitch-active {
       &::before {
         animation: glitch-anim-1 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        color: var(--color-brand-purple);
         clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
       }
 
       &::after {
         animation: glitch-anim-2 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        color: var(--color-brand-dark-magenta);
         clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
       }
     }
@@ -84,50 +80,17 @@
 
   &__link {
     font-size: 1rem;
-    font-weight: 500;
-    color: #9ca3af;
+    font-weight: 600;
+    color: var(--text-light);
     text-transform: uppercase;
     letter-spacing: 0.25px;
     text-decoration: none;
     transition: color 200ms ease;
     line-height: 15px;
+    opacity: 0.8;
 
     &:hover {
-      color: var(--color-white);
+      opacity: 1;
     }
-  }
-
-  &__lang {
-    display:flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  &__lang-btn {
-    background: none;
-    border: none;
-    color: #6B7280;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 300ms ease;
-    line-height: 15px;
-
-    @include media.mobile {
-      font-size: 14px;
-    }
-
-    &--active {
-      color: var(--color-white);
-    }
-
-    &:hover {
-      color: var(--color-white);
-    }
-  }
-
-  &__lang-separator {
-    opacity: 0.3;
-    cursor: default;
   }
 }

@@ -5,63 +5,58 @@
   position: relative;
   z-index: var(--z-content);
   width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(var(--color-black), 0.4);
-  @include mixins.backdrop-blur(12px);
-  padding-block: 32px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+  padding-block: 2rem;
 
-  @include media.mobile {
-    padding-block: 24px;
+  @include media.mobile-s {
+    padding-block: 1.5rem;
   }
 
   &__container {
-    padding-inline: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     @include media.mobile {
       flex-direction: column;
-      gap: 16px;
+      gap: 1rem;
     }
   }
 
   &__copyright {
     font-size: 14px;
-    color: var(--color-gray-600);
-    font-weight: 300;
+    color: var(--text-muted);
+    opacity: 0.8;
+    font-weight: 400;
     line-height: 16px;
+    text-align: center;
 
-    @include media.mobile {
-      font-size: 16px;
-      text-align: center;
+    @include media.mobile-s {
+      font-size: 1rem;
     }
+
   }
 
   &__links {
     display: flex;
     align-items: center;
-    gap: 24px;
-
-    @include media.mobile-s {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-    }
+    gap: 16px;
   }
 
   &__link {
     font-size: 14px;
-    color: var(--color-gray-500);
+    color: var(--text-muted);
+    opacity: 0.6;
     text-decoration: none;
     white-space: nowrap;
-    @include mixins.transition(color);
+    @include mixins.transition(opacity);
 
     &:hover {
-      color: var(--color-white);
+      opacity: 1;
     }
 
-    @include media.mobile {
+    @include media.mobile-s {
       font-size: 1rem;
     }
   }

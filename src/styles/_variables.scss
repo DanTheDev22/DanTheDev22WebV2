@@ -1,84 +1,34 @@
 :root {
-  --container-width-default: 1392px;
-  --container-padding-x: 24px;
+  --container-width-default: 1232px;
+  --container-padding-x: 104px;
+  --section-padding-y: 80px;
 
-  --section-padding-y: 96px;
+  //Fonts
+  --font-family: 'Inter', sans-serif;
+  --font-secondary: 'Space Grotesk', sans-serif;
 
-  --color-brand-purple: #7C3AED;
-  --color-brand-dark-purple: #4C1D95;
-  --color-brand-magenta: #DB2777;
-  --color-brand-dark-magenta: #BE185D;
-  --color-brand-void: #020204;
+  //Color
+  --bg-dark: #030303;
+  --bg: #0A0A0A;
+  --bg-light: #171717;
 
-  // Accent Colors
-  --color-cyan-300: #67e8f9;
-  --color-cyan-400: #22d3ee;
-  --color-cyan-500: #06b6d4;
-  --color-cyan-900: #164e63;
-  --color-fuchsia-400: #e879f9;
-  --color-fuchsia-500: #d946ef;
-  --color-fuchsia-900: #701a75;
+  --text-dark: #000000;
+  --text-light : #F2F2F2;
+  --text-muted: #B0B0B0;
 
-  // Gray Scale
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  --highlight: #636363;
+  --border: #474747;
+  --border-muted: #2E2E2E;
 
-  // Dark Shades
-  --color-dark-bg: #020617;
-  --color-dark-slate: #0f172a;
-  --color-dark-purple-shade: #1e1b4b;
-  --color-black: #000000;
-  --color-white: #ffffff;
+  --primary-color: #B9B66A;
+  --secondary-color: #AAA6ED;
 
-  // Fonts
-  --font-inter: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  // Spacing
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-5: 1.25rem;
-  --spacing-6: 1.5rem;
-  --spacing-8: 2rem;
-  --spacing-10: 2.5rem;
-  --spacing-12: 3rem;
-  --spacing-16: 4rem;
-  --spacing-20: 5rem;
-  --spacing-24: 6rem;
-  --spacing-32: 8rem;
-
-  // Border Radius
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2rem;
-  --radius-full: 9999px;
-
-  // Transitions
-  --transition-duration-fast: 200ms;
-  --transition-duration-base: 300ms;
-  --transition-duration-slow: 500ms;
-
-  // Z-index
-  --z-background: 0;
-  --z-base: 10;
-  --z-content: 30;
-  --z-header: 50;
-  --z-overlay: 60;
+  --danger-color: #BB928B;
+  --warning-color: #A6A17D;
+  --success-color: #85A894;
+  --info-color: #8DA0BF;
 
   // 3d scene positions
-
-
   --node-backend-left: 55%;
   --node-cloud-top: 10%;
   --node-frontend-left: 15%;

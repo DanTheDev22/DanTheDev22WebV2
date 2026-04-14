@@ -3,8 +3,21 @@
 
 .container {
   max-width: calc( var(--container-width-default) + (var(--container-padding-x) * 2));
+  padding-inline: var(--container-padding-x);
   margin-inline: auto;
   width: 100%;
+
+  @include media.tablet {
+    --container-padding-x: 72px;
+  }
+
+  @include media.mobile {
+    --container-padding-x: 88px;
+  }
+
+  @include media.mobile-s {
+    --container-padding-x: 24px;
+  }
 }
 
 .visually-hidden {

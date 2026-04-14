@@ -4,10 +4,11 @@
   position: fixed;
   bottom: 0;
   left: 2rem;
-  z-index: var(--z-header);
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  z-index: 100;
 
   &__list {
     display: flex;
@@ -17,22 +18,19 @@
 
   &__link {
     position: relative;
-    color: var(--color-gray-500);
+    color: var(--text-light);
+    opacity: 0.8;
     text-decoration: none;
-    @include mixins.transition(all, color, transform);
-    transition-duration: var(--transition-duration-base);
+    @include mixins.transition(all, opacity, transform);
+    transition-duration: 200ms;
 
     &:hover {
-      color: var(--color-white);
+      opacity: 1;
       transform: translateY(-0.25rem) scale(1.1);
 
       .social-links__label {
         opacity: 1;
       }
-    }
-
-    &--linkedin:hover {
-      color: var(--color-cyan-400);
     }
   }
 
@@ -47,7 +45,7 @@
     left: 100%;
     margin-left: 0.5rem;
     font-size: 0.75rem;
-    color: var(--color-white);
+    color: var(--text-light);
     opacity: 0;
     white-space: nowrap;
     @include mixins.transition(opacity);
@@ -56,7 +54,7 @@
   &__line {
     width: 1px;
     height: 4rem;
-    background: linear-gradient(to bottom, var(--color-gray-800), transparent);
-    margin-top: var(--spacing-2);
+    background: linear-gradient(180deg, #1F2937 0%, rgba(31, 41, 55, 0.00) 100%);
+    margin-top: 1.5rem;
   }
 }

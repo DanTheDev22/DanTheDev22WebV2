@@ -4,61 +4,48 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  z-index: var(--z-header);
+  z-index: 100;
 
   &__link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 10px 16px 10px 20px;
-    border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    background: var(--bg);
     @include mixins.backdrop-blur(4px);
     text-decoration: none;
     @include mixins.transition(all, background, border-color, box-shadow, transform);
-    transition-duration: var(--transition-duration-base);
+    transition-duration: 200ms;
 
     &:hover {
-      background: rgba(var(--color-white), 0.1);
-      border-color: rgba(var(--color-cyan-500), 0.4);
-      box-shadow: 0 0 15px rgba(var(--color-cyan-500), 0.15);
+      //background: rgba(var(--color-white), 0.1);
+      //border-color: rgba(var(--color-cyan-500), 0.4);
+      //box-shadow: 0 0 15px rgba(var(--color-cyan-500), 0.15);
       transform: translateY(-0.25rem);
-
-      .resume-button__text {
-        color: var(--color-white);
-      }
-
-      .resume-button__icon-wrapper {
-        background: rgba(var(--color-cyan-500), 0.2);
-      }
-
-      .resume-button__icon {
-        color: var(--color-cyan-400);
-      }
     }
   }
 
   &__text {
     font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--color-gray-300);
-    letter-spacing: 0.05em;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
     text-transform: uppercase;
-    @include mixins.transition(color);
   }
 
   &__icon-wrapper {
-    background: rgba(var(--color-white), 0.1);
-    border-radius: var(--radius-full);
-    padding: var(--spacing-1);
+    background: var(--border-muted);
+    border-radius: 9999px;
+    padding: 4px;
     @include mixins.transition(background);
   }
 
   &__icon {
     width: 0.875rem;
     height: 0.875rem;
-    color: var(--color-gray-400);
+    color: var(--text-muted);
     @include mixins.transition(color);
   }
 }
