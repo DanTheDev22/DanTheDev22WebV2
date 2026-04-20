@@ -1,130 +1,126 @@
 ---
 import './Projects.scss'
-import {ArrowUpRight} from  '@lucide/astro';
 ---
 
-<section class="projects container" id="projects-section">
-    <div class="projects__header">
-        <div class="projects__header-line"></div>
-        <span class="projects__header-label">Featured Work</span>
-    </div>
+<section class="projects" id="projects-section">
+    <div class="projects__container container">
 
-    <div class="projects__container">
+        <div class="projects__header">
+            <h2 class="projects__title">Personal projects</h2>
+            <p class="projects__subtitle">Projects I designed and built to solve real problems</p>
+        </div>
 
-        <!-- ── Desktop ── -->
-        <div class="projects__images hidden-mobile">
+        <div class="projects__list">
 
-            <div class="project-image" data-index="0">
-                <div class="project-image__bg swiper" id="project-video-swiper-0">
+            <article class="project">
+                <div class="project__preview swiper">
+
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
-                        <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>
-                        <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>
+                        <video
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                width="750"
+                                class="project__preview-video swiper-slide">
+                            <source src="src/assets/video/2.commands.mp4" type="video/mp4" />
+                        </video>
+
+                        <video
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                width="750"
+                                class="project__preview-video swiper-slide">
+                            <source src="src/assets/video/3.alerts.mp4" type="video/mp4" />
+                        </video>
+
+                        <video
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                width="750"
+                                class="project__preview-video swiper-slide">
+                            <source src="src/assets/video/1.provider.mp4" type="video/mp4" />
+                        </video>
                     </div>
-                    <div class="swiper-pagination project-video-pagination"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
-            </div>
 
-            <div class="project-image" data-index="1">
-                <div class="project-image__bg tba-wrapper" id="project-video-swiper-1">
-                    <h1 class="tba">To be announced</h1>
-                </div>
-            </div>
+                <div class="project__info">
 
-            <!--<div class="project-image" data-index="1">-->
-            <!--    <div class="project-image__bg swiper" id="project-video-swiper-1">-->
-            <!--        <div class="swiper-wrapper">-->
-            <!--            <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>-->
-            <!--            <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>-->
-            <!--            <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>-->
-            <!--        </div>-->
-            <!--        <div class="swiper-pagination project-video-pagination"></div>-->
-            <!--    </div>-->
-            <!--</div>-->
+                    <div class="project__container">
 
-        </div>
+                        <div class="project__info-head">
+                            <h2 class="project__title">Tradebot</h2>
+                            <p class="project__desc">Telegram-based financial assistant for quick market access and automated workflows.</p>
 
-        <div class="projects__content hidden-mobile">
-            <div class="projects__info" id="project-info-container">
-                <div class="projects__title-wrapper">
-                    <div class="projects__title-line"></div>
-                    <h3 id="proj-title" class="projects__title">TradeBot</h3>
-                </div>
-                <p id="proj-desc" class="projects__description">
-                    A Telegram Bot designed to provide real-time financial data and personalized tools for traders and investors.
-                </p>
-                <div id="proj-tags" class="projects__tags">
-                    <span class="projects__tag">Spring Boot</span>
-                    <span class="projects__tag">PostgreSQL</span>
-                    <span class="projects__tag">Redis</span>
-                    <span class="projects__tag">Docker</span>
-                    <span class="projects__tag">Heroku</span>
-                </div>
-                <div class="projects__actions">
-                    <a href="https://github.com/DanTheDev22/Tradebot" id="proj-github" class="projects__button projects__button--primary">
-                        View Project
-                        <ArrowUpRight data-lucide="ArrowUpRight" class="projects__button-icon"></ArrowUpRight>
-                    </a>
-                    <a href="https://t.me/my_trading_assist_bot" id="proj-demo" target="_blank" class="projects__button projects__button--secondary">Live Demo</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="projects__mobile visible-mobile">
-            <div class="swiper projects-mobile-swiper">
-                <div class="swiper-wrapper">
-
-                    <!-- Slide 0 -->
-                    <div class="swiper-slide project-mobile">
-                        <div class="project-mobile__image">
-                            <div class="swiper project-mobile__video-swiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><video src="/videos/1.provider.mp4" autoplay loop muted playsinline></video></div>
-                                    <div class="swiper-slide"><video src="/videos/2.commands.mp4" autoplay loop muted playsinline></video></div>
-                                    <div class="swiper-slide"><video src="/videos/3.alerts.mp4"   autoplay loop muted playsinline></video></div>
-                                </div>
-                                <div class="swiper-pagination project-mobile-video-pagination"></div>
+                            <div class="project__actions">
+                                <a class="project__action primary" href="https://t.me/my_trading_assist_bot">
+                                    Live demo
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5.6498 10.025L7.5998 10.85C7.83314 10.3833 8.0748 9.93332 8.3248 9.49998C8.5748 9.06665 8.8498 8.63332 9.1498 8.19998L7.7498 7.92498L5.6498 10.025ZM9.1998 12.1L12.0498 14.925C12.7498 14.6583 13.4998 14.25 14.2998 13.7C15.0998 13.15 15.8498 12.525 16.5498 11.825C17.7165 10.6583 18.6291 9.36265 19.2878 7.93798C19.9465 6.51332 20.2338 5.20065 20.1498 3.99998C18.9498 3.91665 17.6331 4.20432 16.1998 4.86298C14.7665 5.52165 13.4665 6.43398 12.2998 7.59998C11.5998 8.29998 10.9748 9.04998 10.4248 9.84998C9.8748 10.65 9.46647 11.4 9.1998 12.1ZM13.0748 9.06298C13.0748 8.50432 13.2665 8.03332 13.6498 7.64998C14.0331 7.26665 14.5081 7.07498 15.0748 7.07498C15.6415 7.07498 16.1165 7.26665 16.4998 7.64998C16.8831 8.03332 17.0748 8.50432 17.0748 9.06298C17.0748 9.62165 16.8831 10.0923 16.4998 10.475C16.1165 10.8577 15.6415 11.0493 15.0748 11.05C14.5081 11.0507 14.0331 10.859 13.6498 10.475C13.2665 10.091 13.0748 9.62032 13.0748 9.06298ZM14.1248 18.5L16.2248 16.4L15.9498 15C15.5165 15.3 15.0831 15.5707 14.6498 15.812C14.2165 16.0533 13.7665 16.291 13.2998 16.525L14.1248 18.5ZM21.9498 2.17498C22.2665 4.19165 22.0708 6.15432 21.3628 8.06298C20.6548 9.97165 19.4338 11.7923 17.6998 13.525L18.1998 16C18.2665 16.3333 18.2498 16.6583 18.1498 16.975C18.0498 17.2917 17.8831 17.5666 17.6498 17.8L13.4498 22L11.3498 17.075L7.0748 12.8L2.1498 10.7L6.3248 6.49998C6.55814 6.26665 6.83747 6.09998 7.1628 5.99998C7.48814 5.89998 7.81714 5.88332 8.1498 5.94998L10.6248 6.44998C12.3581 4.71665 14.1748 3.49165 16.0748 2.77498C17.9748 2.05832 19.9331 1.85832 21.9498 2.17498ZM3.9248 15.975C4.50814 15.3917 5.22081 15.096 6.06281 15.088C6.90481 15.08 7.61714 15.3673 8.1998 15.95C8.78247 16.5326 9.07014 17.2453 9.0628 18.088C9.05547 18.9306 8.75947 19.643 8.1748 20.225C7.75814 20.6416 7.06247 21 6.0878 21.3C5.11314 21.6 3.76714 21.8666 2.0498 22.1C2.28314 20.3833 2.5498 19.0373 2.8498 18.062C3.1498 17.0866 3.50814 16.391 3.9248 15.975ZM5.3498 17.375C5.18314 17.5417 5.01647 17.846 4.8498 18.288C4.68314 18.73 4.56647 19.1756 4.4998 19.625C4.9498 19.5583 5.3958 19.446 5.8378 19.288C6.2798 19.13 6.5838 18.9673 6.7498 18.8C6.9498 18.6 7.05814 18.3583 7.0748 18.075C7.09147 17.7916 6.9998 17.55 6.7998 17.35C6.5998 17.15 6.35814 17.054 6.0748 17.062C5.79147 17.07 5.5498 17.1743 5.3498 17.375Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                                <a class="project__action secondary" href="https://github.com/DanTheDev22/Tradebot">
+                                    GitHub
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
-                        <div class="project-mobile__content">
-                            <h3 class="project-mobile__title">TradeBot</h3>
-                            <p class="project-mobile__description">A Telegram Bot designed to provide real-time financial data and personalized tools for traders and investors.</p>
-                            <div class="project-mobile__tags">
-                                <span class="projects__tag">Spring Boot</span>
-                                <span class="projects__tag">PostgreSQL</span>
-                                <span class="projects__tag">Redis</span>
-                                <span class="projects__tag">Docker</span>
-                                <span class="projects__tag">Heroku</span>
+
+                        <dl class="project__details">
+                            <div class="project__detail">
+                                <dt class="project__detail-label">Problem</dt>
+                                <dd class="project__detail-value">Users needed a quicker way to check market data and perform common actions in one place.</dd>
                             </div>
-                        </div>
-                        <div class="projects__actions">
-                            <a href="https://github.com/DanTheDev22/Tradebot" class="projects__button projects__button--primary">
-                                View Project
-                                <i data-lucide="arrow-up-right" class="projects__button-icon"></i>
-                            </a>
-                            <a href="https://t.me/my_trading_assist_bot" target="_blank" class="projects__button projects__button--secondary">Live Demo</a>
-                        </div>
+                            <div class="project__detail">
+                                <dt class="project__detail-label">Goal</dt>
+                                <dd class="project__detail-value">Simplify repeated actions and make key information easier to access through chat.</dd>
+                            </div>
+                            <div class="project__detail">
+                                <dt class="project__detail-label">Users</dt>
+                                <dd class="project__detail-value">Retail traders and mobile-first users who need quick, command-based access.</dd>
+                            </div>
+                            <div class="project__detail project__detail--extended">
+                                <dt class="project__detail-label">Key UX decisions</dt>
+                                <dd class="project__detail-value">
+                                    <ul class="project__detail-list">
+                                        <li class="project__detail-list-item">Used a chat-based interaction model to reduce learning curve</li>
+                                        <li class="project__detail-list-item">Prioritized short command flows over multi-step navigation</li>
+                                        <li class="project__detail-list-item">Structured outputs for quick scanning under time pressure</li>
+                                        <li class="project__detail-list-item">Reduced cognitive load by keeping responses concise and action-oriented</li>
+                                        <li class="project__detail-list-item">Focused on speed and clarity instead of decorative UI</li>
+                                    </ul>
+                                </dd>
+                            </div>
+                            <div class="project__detail">
+                                <dt class="project__detail-label">Outcome</dt>
+                                <dd class="project__detail-value">Created a lightweight interface that made key actions faster and easier to access.</dd>
+                            </div>
+                        </dl>
+
+                        <ul class="project__tech">
+                            <li class="project__tech-item">SPRING BOOT</li>
+                            <li class="project__tech-item">TELEGRAM BOT API</li>
+                            <li class="project__tech-item">POSTGRESQL</li>
+                            <li class="project__tech-item">REDIS</li>
+                            <li class="project__tech-item">DOCKER</li>
+                        </ul>
                     </div>
-
-                    <!-- Add more slides here following the same pattern -->
-
                 </div>
+            </article>
 
-                <!-- Mobile project-level pagination (dots between project cards) -->
-                <div class="swiper-pagination projects-mobile-pagination"></div>
-            </div>
         </div>
-
     </div>
-
-
 </section>
 
 <script>
-    import {Projects} from './Projects';
-    const instance = Projects.init();
+    import Slider from './Projects.js';
 
-    document.addEventListener('astro:before-swap', () => {
-        instance?.destroy();
-    });
+    new Slider();
 </script>
