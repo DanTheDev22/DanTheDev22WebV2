@@ -33,89 +33,43 @@ import './Hero.scss'
         </div>
     </div>
 
-    <div class="hero__scene hidden-mobile">
-        <!-- 3D Scene -->
-        <div class="tilt-wrapper" id="tilt-wrapper">
-            <!-- Backend Node -->
-            <div class="node node--backend" id="node-backend">
-                <div class="node__glow"></div>
-                <div class="node__core">
-                    <div class="node__inner-ring"></div>
-                    <div class="node__line node__line--horizontal"></div>
-                    <div class="node__line node__line--vertical"></div>
-                </div>
-                <div class="node__label">Backend Core</div>
+    <div class="profile-card visible-mobile">
+        <div class="profile-card__frame">
+
+            <div class="profile-card__photo-wrapper">
+                <img
+                        src="public/photo-self.png"
+                        alt="Dan — Full Stack Developer"
+                        class="profile-card__photo"
+                />
             </div>
 
-            <!-- Cloud Node -->
-            <div class="node node--cloud" id="node-cloud">
-                <div class="node__connector node__connector--cloud"></div>
-                <div class="node__icon">
-                    <svg class="node__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                        <path d="M17.5 19c0-1.7-1.3-3-3-3h-11a3 3 0 0 1 0-6h1a5 5 0 0 1 9.9-1 3 3 0 0 1 3.1 7z"></path>
+            <div class="profile-card__socials">
+                <a href="https://github.com/DanTheDev22" target="_blank" rel="noopener noreferrer" class="profile-card__social-link" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M12.5005 18.3334V15C12.6164 13.9561 12.3171 12.9085 11.6671 12.0834C14.1671 12.0834 16.6671 10.4167 16.6671 7.50002C16.7338 6.45835 16.4421 5.43335 15.8338 4.58335C16.0671 3.62502 16.0671 2.62502 15.8338 1.66669C15.8338 1.66669 15.0005 1.66669 13.3338 2.91669C11.1338 2.50002 8.86715 2.50002 6.66715 2.91669C5.00048 1.66669 4.16715 1.66669 4.16715 1.66669C3.91715 2.62502 3.91715 3.62502 4.16715 4.58335C3.56037 5.42992 3.26587 6.46068 3.33381 7.50002C3.33381 10.4167 5.83381 12.0834 8.33381 12.0834C8.00881 12.4917 7.76715 12.9584 7.62548 13.4584C7.48381 13.9584 7.44215 14.4834 7.50048 15V18.3334" stroke="#B0B0B0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.50033 15C3.74199 16.6666 3.33366 13.3333 1.66699 13.3333" stroke="#B0B0B0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <div class="node__ping"></div>
-                </div>
-                <div class="node__label">Cloud/Deploy</div>
+                </a>
+
+                <a href="https://x.com/DanTheDev22" target="_blank" rel="noopener noreferrer" class="profile-card__social-link" aria-label="X (Twitter)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M3.33301 3.33331L13.1105 16.6666H16.6663L6.88884 3.33331H3.33301" stroke="#B0B0B0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.33301 16.6666L8.97301 11.0266M11.023 8.97665L16.6663 3.33331" stroke="#B0B0B0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <a href="https://linkedin.com/in/DanTheDev22" target="_blank" rel="noopener noreferrer" class="profile-card__social-link" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 8C17.7614 8 20 10.2386 20 13V18.8333H16.6667V13C16.6667 12.0795 15.9205 11.3333 15 11.3333C14.0795 11.3333 13.3333 12.0795 13.3333 13V18.8333H10V13C10 10.2386 12.2386 8 15 8V8" stroke="#B0B0B0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 9H5.33333V9V19V19H2V19V9V9V9" stroke="#B0B0B0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 3.66667C2 4.58652 2.74681 5.33333 3.66667 5.33333C4.58652 5.33333 5.33333 4.58652 5.33333 3.66667C5.33333 2.74681 4.58652 2 3.66667 2C2.74681 2 2 2.74681 2 3.66667V3.66667" stroke="#B0B0B0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
 
-            <!-- Frontend Node -->
-            <div class="node node--frontend" id="node-frontend" style="animation-delay: -2s;">
-                <div class="node__connector node__connector--frontend"></div>
-                <div class="cube-wrapper">
-                    <div class="cube-face cube-face--front"></div>
-                    <div class="cube-face cube-face--back"></div>
-                    <div class="cube-face cube-face--right"></div>
-                    <div class="cube-face cube-face--left"></div>
-                    <div class="cube-face cube-face--top"></div>
-                    <div class="cube-face cube-face--bottom"></div>
-                    <div class="cube-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cube-icon__svg">
-                            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
-                            <path d="M3 9h18"></path>
-                            <path d="M9 21V9"></path>
-                        </svg>
-                    </div>
-                </div>
-                <div class="node__label node__label--top">Frontend</div>
-            </div>
-
-            <!-- API Node -->
-            <div class="node node--api" id="node-api" style="animation-delay: -4s;">
-                <div class="node__connector node__connector--api"></div>
-                <div class="node__spinner">
-                    <svg class="node__svg node__svg--full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                        <path d="M3.3 7l8.7 5 8.7-5M12 22v-10"></path>
-                    </svg>
-                </div>
-                <div class="node__label node__label--bottom">API/Logic</div>
-            </div>
-
-            <!-- Database Node -->
-            <div class="node node--db" id="node-db" style="animation-delay: -1s;">
-                <div class="node__connector node__connector--db"></div>
-                <div class="node__db-icon">
-                    <svg class="node__svg node__svg--db-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                        <path d="M12 2L2 12l10 10 10-10L12 2z"></path>
-                        <path d="M2 12h20"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="node__svg node__svg--db">
-                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                        <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
-                        <path d="M3 12A9 3 0 0 0 21 12"></path>
-                    </svg>
-                </div>
-                <div class="node__label">Database</div>
-            </div>
         </div>
     </div>
+
 </main>
 
-<!--<script>-->
-<!--    import { HeroScene } from './Hero.js';-->
-
-<!--    document.addEventListener('DOMContentLoaded', () => {-->
-<!--        new HeroScene();-->
-<!--    });-->
-<!--</script>-->

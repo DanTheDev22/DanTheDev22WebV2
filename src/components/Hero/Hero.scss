@@ -4,32 +4,41 @@
 .hero {
   min-height: 85vh;
   margin: 0 auto;
-  padding: 80px 104px;
+  padding-block: 80px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 32px;
 
   @include media.tablet {
-    flex-direction: column;
+    padding-block: 64px;
+  }
+
+  @include media.mobile {
+    padding-block: 48px;
+  }
+
+  @include media.mobile-s {
+    padding-block: 32px;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 32px;
-
-    @include media.desktop {
-      width: 45%;
-    }
   }
 
   &__text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    @include media.mobile {
+      gap: 12px;
+    }
   }
 
   &__title {
@@ -40,6 +49,17 @@
     color: var(--text-light);
     font-family: var(--font-secondary),sans-serif;
     letter-spacing: 1.2px;
+    white-space: nowrap;
+
+    @include media.tablet {
+      white-space: wrap;
+      text-align: center;
+    }
+
+    @include media.mobile {
+      font-size: 40px;
+      line-height: 64px;
+    }
 
     &-accent {
       color: var(--primary-color);
@@ -48,6 +68,11 @@
       line-height: 96px;
       font-weight: 400;
       letter-spacing: 1.2px;
+
+      @include media.mobile {
+        font-size: 40px;
+        line-height: 64px;
+      }
     }
   }
 
@@ -58,12 +83,20 @@
     line-height: 72px;
     letter-spacing: -1.8px;
     font-weight: 400;
+    text-align: center;
+
+    @include media.mobile {
+      font-size: 36px;
+      line-height: 56px;
+    }
   }
 
   &__actions {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__button {
@@ -76,6 +109,11 @@
     align-items: center;
     gap: 4px;
     transition: all 300ms ease;
+
+    @include media.mobile {
+      width: 100%;
+      justify-content: center;
+    }
 
     &--primary {
       overflow: hidden;
@@ -116,351 +154,35 @@
     height: 1rem;
     transition: transform 300ms ease;
   }
-
-  &__scene {
-    width: 55%;
-    height: 600px;
-    position: relative;
-    perspective: 1000px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
-// 3D Scene
-.tilt-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 100ms ease-out;
+.profile-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1);
-}
+  padding: 16px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--bg);
 
-.node {
-  position: absolute;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  &:hover {
-    filter: drop-shadow(0 0 15px var(--node-color, var(--primary-color))) brightness(1.2);
-    transform: scale(1.05) translateZ(10px);
-  }
-
-  &--backend {
-    top: 50%;
-    left: var(--node-backend-left);
-    transform: translate(-50%, -50%);
-    z-index: 20;
-    --node-color: var(--primary-color);
-  }
-
-  &--cloud {
-    top: var(--node-cloud-top);
-    left: 51%;
-    transform: translateX(-50%);
-    animation: float 6s ease-in-out infinite;
-    --node-color: var(--secondary-color);
-  }
-
-  &--frontend {
-    top: 50%;
-    left: var(--node-frontend-left);
-    transform: translateY(-50%);
-    animation: float 6s ease-in-out infinite;
-    --node-color: var(--primary-color);
-  }
-
-  &--api {
-    top: 50%;
-    right: var(--node-api-right);
-    transform: translateY(-50%);
-    animation: float 6s ease-in-out infinite;
-    --node-color: var(--secondary-color);
-  }
-
-  &--db {
-    bottom: var(--node-db-bottom);
-    left: 52%;
-    transform: translateX(-50%);
-    animation: float 6s ease-in-out infinite;
-    --node-color: var(--primary-color);
-  }
-
-  // ── Glow ───────────────────────────────────────────
-  &__glow {
-    position: absolute;
-    inset: 0;
-    background: rgba(from var(--node-color) r g b / 0.15);
-    filter: blur(50px);
-    border-radius: 9999px;
-    transition: background 500ms ease;
-  }
-
-  &:hover &__glow {
-    background: rgba(from var(--node-color) r g b / 0.25);
-  }
-
-  // ── Backend Core ───────────────────────────────────
-  &__core {
-    position: relative;
-    width: 6rem;
-    height: 6rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(185, 182, 106, 0.5); // primary
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    box-shadow: 0 0 30px rgba(185, 182, 106, 0.25); // primary
-    transition: transform 500ms ease;
-  }
-
-  &:hover &__core {
-    transform: scale(1.1);
-  }
-
-  &__inner-ring {
-    position: absolute;
-    inset: 0.5rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(170, 166, 237, 0.35); // secondary
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  &__line {
-    position: absolute;
-
-    &--horizontal {
-      width: 100%;
-      height: 1px;
-      top: 50%;
-      left: 0;
-      background: rgba(185, 182, 106, 0.9); // primary
-      animation: spin 20s linear infinite;
-    }
-
-    &--vertical {
-      height: 100%;
-      width: 1px;
-      top: 0;
-      left: 50%;
-      background: rgba(170, 166, 237, 0.9); // secondary
-      animation: spin 25s linear infinite reverse;
-    }
-  }
-
-  // ── Connectors — each inherits its node's --node-color ──
-  &__connector {
-    position: absolute;
-    width: 1px;
-
-    &--cloud {
-      top: 100%;
-      left: 50%;
-      height: 150px;
-      // secondary node → secondary gradient
-      background: rgba(170, 166, 237, 0.9);
-      transform: translateX(-50%);
-      transform-origin: top;
-    }
-
-    &--frontend {
-      top: 50%;
-      left: 120%;
-      width: 180px;
-      height: 1px;
-      // primary node → primary gradient
-      background: rgba(185, 182, 106, 0.9);
-      transform: translateY(-50%);
-      transform-origin: left;
-    }
-
-    &--api {
-      top: 50%;
-      right: 96%;
-      width: 180px;
-      height: 1px;
-      // secondary node → secondary gradient
-      background: rgba(170, 166, 237, 0.9);
-      transform: translateY(-50%);
-      transform-origin: right;
-    }
-
-    &--db {
-      bottom: 100%;
-      left: 50%;
-      height: 150px;
-      width: 1px;
-      // primary node → primary gradient
-      background: rgba(185, 182, 106, 0.9);
-      transform: translateX(-50%);
-      transform-origin: bottom;
-    }
-  }
-
-  &__icon {
-    position: relative;
-    width: 4rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  // ── SVG icons — tinted by node color ───────────────
-  &__svg {
-    color: var(--node-color);
-    filter: drop-shadow(0 0 8px rgba(from var(--node-color) r g b / 0.3));
-
-    &--full {
-      width: 100%;
-      height: 100%;
-    }
-
-    &--db-bg {
-      width: 100%;
-      height: 100%;
-      color: var(--node-color);
-      filter: drop-shadow(0 0 8px rgba(from var(--node-color) r g b / 0.3));
-    }
-
-    &--db {
-      position: absolute;
-      width: 1rem;
-      height: 1rem;
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
-
-  &__ping {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 0.25rem;
-    height: 0.25rem;
-    background: var(--secondary-color); // cloud only uses this
-    border-radius: 9999px;
-    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  &__spinner {
-    position: relative;
-    width: 3.5rem;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: spin 20s linear infinite;
-  }
-
-  &__db-icon {
-    position: relative;
-    width: 3rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  // ── Labels — color driven by --node-color ───────────
-  &__label {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.25rem;
-    border: 1px solid rgba(from var(--node-color) r g b / 0.3);
-    background: rgba(0, 0, 0, 0.6);
-    font-size: 0.75rem;
-    font-family: var(--font-secondary), sans-serif; // was 'JetBrains Mono', monospace
-    color: var(--node-color);
-    opacity: 0.8;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    bottom: -2.5rem;
-
-    &--top {
-      bottom: auto;
-      top: -2rem;
-    }
-
-    &--bottom {
-      bottom: -2rem;
-    }
-  }
-}
-
-  // ── Cube (Frontend node) ────────────────────────────
-  .cube-wrapper {
-    width: 3rem;
-    height: 3rem;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: spin 15s linear infinite;
-  }
-
-  .cube-face {
-    position: absolute;
+  &-frame {
     width: 100%;
     height: 100%;
-    border: 1px solid rgba(185, 182, 106, 0.3); // primary — frontend
-    background: rgba(185, 182, 106, 0.04);
-    box-shadow: 0 0 12px rgba(185, 182, 106, 0.08) inset;
-    backface-visibility: visible;
-
-    &--front {
-      transform: rotateY(0deg) translateZ(24px);
-    }
-
-    &--back {
-      transform: rotateY(180deg) translateZ(24px);
-    }
-
-    &--right {
-      transform: rotateY(90deg) translateZ(24px);
-    }
-
-    &--left {
-      transform: rotateY(-90deg) translateZ(24px);
-    }
-
-    &--top {
-      transform: rotateX(90deg) translateZ(24px);
-    }
-
-    &--bottom {
-      transform: rotateX(-90deg) translateZ(24px);
-    }
   }
 
-  .cube-icon {
-    position: absolute;
-    inset: 0;
+  &__photo-wrapper {
+    width: 190px;
+    height: 200px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  &__socials {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform-style: preserve-3d;
-    transform: translateZ(10px);
-
-    &__svg {
-      color: var(--primary-color); // primary — frontend
-      width: 1.5rem;
-      height: 1.5rem;
-      opacity: 0.8;
-    }
+    gap: 24px;
+    padding: 12px 20px;
   }
 
-  body.has-focus .node:not(.active) {
-    opacity: 0.15 !important;
-    filter: blur(4px) grayscale(100%);
-    pointer-events: none;
-  }
+}

@@ -77,6 +77,10 @@
 
   &__container {
     padding-inline: 24px;
+
+    @include media.mobile-s {
+      padding-inline: 16px;
+    }
   }
 
   &__title {
@@ -150,6 +154,7 @@
       font-weight: 400;
       line-height: 24px;
       letter-spacing: 0.25px;
+      display: block;
     }
 
     &--extended {
@@ -176,7 +181,7 @@
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
-    padding: 24px;
+    padding-block: 24px;
 
     &-item {
       padding: 8px 16px;

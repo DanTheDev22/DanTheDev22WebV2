@@ -113,6 +113,10 @@
     @include media.mobile {
       grid-template-columns: repeat(2,1fr);
     }
+
+    @include media.mobile-s {
+      grid-template-columns: repeat(1,1fr);
+    }
   }
 }
 
